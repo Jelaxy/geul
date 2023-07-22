@@ -4,6 +4,5 @@ DROP TABLE funding;
 DROP TABLE fav_category;
 DROP TABLE author_detail;
 DROP TABLE paycard_info;
-DROP TABLE funding;
-DROP TABLE funding;
-DROP TABLE funding;
+DROP TABLE BANK_ACCOUNT;
+DROP TABLE address;
