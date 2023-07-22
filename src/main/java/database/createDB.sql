@@ -165,13 +165,12 @@ REFERENCES grd_user (
 	u_id
 );
 
-ALTER TABLE BANK_ACCOUNT ADD CONSTRAINT FK_author_detail_TO_BANK_ACCOUNT_1 FOREIGN KEY (
-	u_id
+ALTER TABLE BANK_ACCOUNT ADD CONSTRAINT FK_author_TO_BANK_ACCOUNT_1 FOREIGN KEY (
+   u_id
 )
 REFERENCES author_detail (
-	u_id
+   u_id
 );
-
 ALTER TABLE address ADD CONSTRAINT FK_grd_user_TO_address_1 FOREIGN KEY (
 	u_id
 )
