@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd" >	
+<mapper namespace="geulrowding.a03_dao.FundingDao">
+	<resultMap type="projectGrd_user" id="pjRst">
+		<association property="project"   javaType="project">
+			<id column="pj_id" property="pj_id"/>
+			<result column="title" property="title"/>
+			<result column="price" property="price"/>
+			<result column="img" property="img"/>
+			<result column="startdate" property="startdate"/>
+			<result column="enddate" property="enddate"/>
+			<result column="goal_amt" property="goal_amt"/>
+			<result column="g_id" property="g_id"/>
+			<result column="info_img" property="info_img"/>
+			<result column="u_id" property="u_id"/>
+		</association>
+		<association property="grd_user"   javaType="grd_user">
+			<id column="u_id" property="u_id"/>
+			<result column="pass" property="pass"/>
+			<result column="name" property="name"/>
+			<result column="nickname" property="nickname"/>
+			<result column="phn_num" property="phn_num"/>
+			<result column="email" property="email"/>
+			<result column="authorization" property="authorization"/>
+		</association>		
+	</resultMap>	 
+	<select id="getFundingList" resultMap="pjRst">
+		SELECT *
+		FROM PROJECT p , GRD_USER gu
+		WHERE p.U_ID  = gu.U_ID	
+	</select>	 
+</mapper>	
