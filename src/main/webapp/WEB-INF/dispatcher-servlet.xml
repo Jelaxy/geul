@@ -76,7 +76,7 @@
 	</bean> 
 	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
 		<property name="basePackage" 
-			value="springweb.a05_mvcexp.a03_dao"/>
+			value="spring.a03_dao"/>
 	</bean>
 	
 </beans>   
