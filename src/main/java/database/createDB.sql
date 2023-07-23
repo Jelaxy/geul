@@ -69,7 +69,7 @@ CREATE TABLE author_detail (
 
 CREATE TABLE paycard_info (
 	u_id	varchar2(50)	NOT NULL,
-	expiration _date	date	NULL,
+	expiration_date	date NULL,
 	cvc	number	NULL,
 	paycard_cname	varchar2(50)	NULL,
 	paycard_number	number	NOT NULL
