@@ -27,8 +27,12 @@
 		</association>		
 	</resultMap>	 
 	<select id="getFundingList" resultMap="pjRst">
-		SELECT *
-		FROM PROJECT p , GRD_USER gu
-		WHERE p.U_ID  = gu.U_ID	
+		SELECT p.PJ_ID , p.TITLE , p.PRICE , p.IMG , p.STARTDATE , p.ENDDATE ,p.GOAL_AMT, p.U_ID ,gu.NICKNAME, 
+		(SELECT COUNT(f.F_ID) FROM FUNDING f WHERE f.PJ_ID = p.PJ_ID ) AS NOW_AMT
+		FROM PROJECT p 
+		JOIN GRD_USER gu ON P.U_ID = gu.U_ID 
+		LEFT OUTER JOIN FUNDING f ON p.PJ_ID = f.PJ_ID
+		<![CDATA[AND p.STARTDATE < SYSDATE]]>
+		ORDER BY p.ENDDATE 
 	</select>	 
 </mapper>	
