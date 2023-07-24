@@ -132,7 +132,7 @@
                                 <div class="row">
                                   		<!-- 프로젝트 반복문  -->
                                   		<c:forEach var = "plist" items="${projectList}">
-	                                    <div class="col-lg-4 col-md-6 col-6" data-aos="fade-up" data-aos-duration="700">
+	                                    <div class="col-lg-4 col-md-6 col-6 " data-aos="fade-up" data-aos-duration="700">
 	                                        <div class="product-card">
 	                                            <div class="product-card-img">
                                                     <img class="primary-img" src="assets/img/project/thumbnail/${plist.project.img}" alt="product-img">     
@@ -156,9 +156,6 @@
 											            <h4><a style="color: black;" href="#">${plist.project.title}</a></h4>
 											            <div style="text-align:right;">
 											            	<p style="padding-right:20px;">${plist.grd_user.nickname}</p>
-											            </div>
-											            <div>
-											            	<button type="submit" style="width:100%;height:30px;">펀딩하기</button>
 											            </div>
 												    </div>						  	    
 												</div>
