@@ -15,7 +15,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="meta description">
-    <link rel="shortcut icon" href="assets/img/favicon.png" type="image/x-icon">
+	<link rel="shortcut icon" href="${pageContext.request.contextPath}/assets/img/favicon.png" type="image/x-icon">
     <!-- fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -71,8 +71,8 @@
         }
     </style>
 
-    <link rel="stylesheet" href="assets/css/vendor.css">
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/vendor.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/style.css">
 </head>
 <body>
     <div class="body-wrapper">
@@ -1028,7 +1028,7 @@
                             </p>
                         </div>
                         <div class="minicart-btn-area d-flex align-items-center justify-content-between">
-                            <a href="cart.html" class="minicart-btn btn-secondary">View Cart</a>
+                            <a href="checkout_reward.jsp" class="minicart-btn btn-secondary">View Cart</a>
                             <a href="checkout.html" class="minicart-btn btn-primary">Checkout</a>
                         </div>
                     </div>
@@ -1051,8 +1051,8 @@
         <!-- drawer cart end -->
         
         <!-- all js -->
-        <script src="assets/js/vendor.js"></script>
-        <script src="assets/js/main.js"></script>
+ 		<script src="${pageContext.request.contextPath}/assets/js/vendor.js"></script>
+        <script src="${pageContext.request.contextPath}/assets/js/main.js"></script>
     </div>
 </body>
 </html>

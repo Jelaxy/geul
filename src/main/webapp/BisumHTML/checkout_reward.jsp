@@ -15,7 +15,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="meta description">
-    <link rel="shortcut icon" href="assets/img/favicon.png" type="image/x-icon">
+    <link rel="shortcut icon" href="${pageContext.request.contextPath}/assets/img/favicon.png" type="image/x-icon">
     <!-- fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -71,8 +71,8 @@
         }
     </style>
 
-    <link rel="stylesheet" href="assets/css/vendor.css">
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/vendor.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/style.css">
 </head>
 <body>
      <div class="body-wrapper">
@@ -326,7 +326,7 @@
                                             <p class="subtotal-value" name="payTot">51,000원</p>
                                         </div>
                                         <div class="d-flex justify-content-center mt-4">
-                                            <a href="geul_shipping.html" class="position-relative btn-primary text-uppercase">
+                                            <a href="checkout_shipping.jsp" class="position-relative btn-primary text-uppercase">
                                                 배송 정보 입력
                                             </a>
                                         </div>
@@ -1113,8 +1113,8 @@
         <!-- drawer cart end -->
         
         <!-- all js -->
-        <script src="assets/js/vendor.js"></script>
-        <script src="assets/js/main.js"></script>
+ 		<script src="${pageContext.request.contextPath}/assets/js/vendor.js"></script>
+        <script src="${pageContext.request.contextPath}/assets/js/main.js"></script>
     </div>
 </body>
 </html>
