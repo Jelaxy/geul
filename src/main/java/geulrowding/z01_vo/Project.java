@@ -69,6 +69,27 @@ public class Project {
 	public void setU_id(String u_id) {
 		this.u_id = u_id;
 	}
+	public int getNow_amt() {
+		return now_amt;
+	}
+	public void setNow_amt(int now_amt) {
+		this.now_amt = now_amt;
+	}
+	public Project(String pj_id, String title, int price, String img, Date startdate, Date enddate, int goal_amt,
+			int now_amt, String g_id, String info_img, String u_id) {
+		super();
+		this.pj_id = pj_id;
+		this.title = title;
+		this.price = price;
+		this.img = img;
+		this.startdate = startdate;
+		this.enddate = enddate;
+		this.goal_amt = goal_amt;
+		this.now_amt = now_amt;
+		this.g_id = g_id;
+		this.info_img = info_img;
+		this.u_id = u_id;
+	}
 	public Project(String pj_id, String title, int price, String img, Date startdate, Date enddate, int goal_amt,
 			String g_id, String info_img, String u_id) {
 		super();
@@ -88,6 +109,7 @@ public class Project {
 		// TODO Auto-generated constructor stub
 	}
 	private int goal_amt;
+	private int now_amt;
 	private String g_id;
 	private String info_img;
 	private String u_id;

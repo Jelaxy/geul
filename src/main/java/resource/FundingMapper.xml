@@ -12,6 +12,8 @@
 			<result column="startdate" property="startdate"/>
 			<result column="enddate" property="enddate"/>
 			<result column="goal_amt" property="goal_amt"/>
+			<result column="now_amt" property="now_amt"/>
+			<result column="goal_amt" property="goal_amt"/>
 			<result column="g_id" property="g_id"/>
 			<result column="info_img" property="info_img"/>
 			<result column="u_id" property="u_id"/>
