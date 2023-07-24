@@ -17,7 +17,10 @@ public class FundingService {
 		System.out.println("#펀딩 리스트 서비스 호출#");
 		return dao.getFundingList();
 	}	
-	
+	public List<ProjectGrd_user> fundingDetail(String pj_id) {
+		System.out.println("#펀딩 디테일 서비스 호출#");
+		return dao.getFunding_detail(pj_id);
+	}
 	
 	
 	

@@ -147,7 +147,7 @@
 	                                    		id="pj_box" onclick="location.href='${pageContext.request.contextPath}/funding-detail.do?pj_id=${plist.project.pj_id}';">
 	                                        <div class="product-card">
 	                                            <div class="product-card-img">
-                                                    <img class="primary-img" src="assets/img/project/thumbnail/${plist.project.img}" alt="product-img">     
+                                                    <img class="primary-img" src="${pageContext.request.contextPath}/assets/img/project/thumbnail/${plist.project.img}" alt="product-img">     
 	                                                <div class="product-badge">
 													    <span class="badge-label badge-percentage rounded" id="dday">${plist.project.dday}일 남음</span>
 													</div>						                                               	 

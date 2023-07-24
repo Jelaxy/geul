@@ -27,7 +27,7 @@ public class FundingController {
 	//http://localhost:5080/geul/funding-detail.do
 	@RequestMapping("funding-detail.do")
 	public String funding_detail(@RequestParam("pj_id") String pj_id, Model d) {
-		//d.addAttribute("projectDetail", service.);
+		d.addAttribute("projectDetail", service.fundingDetail(pj_id));
 		return "WEB-INF\\view\\BisumHTML\\funding-detail.jsp";
 	}
 	

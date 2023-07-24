@@ -8,5 +8,6 @@ import geulrowding.z01_vo.ProjectGrd_user;
 public interface FundingDao {
 	
 	public List<ProjectGrd_user> getFundingList();
+	public List<ProjectGrd_user> getFunding_detail(String pj_id);
 	
 }

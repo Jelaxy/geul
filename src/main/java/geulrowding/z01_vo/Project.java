@@ -16,11 +16,20 @@ public class Project {
 	private Date startdate;
 	private Date enddate;
 	private int dday;
+	//카테고리 이름..
+	private String g_name;
+	
 	public String getPj_id() {
 		return pj_id;
 	}
 	public void setPj_id(String pj_id) {
 		this.pj_id = pj_id;
+	}
+	public String getG_name() {
+		return g_name;
+	}
+	public void setG_name(String g_name) {
+		this.g_name = g_name;
 	}
 	public String getTitle() {
 		return title;

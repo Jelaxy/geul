@@ -96,6 +96,7 @@
             <div class="product-page mt-100">
                 <div class="container">
                     <div class="row">
+                    <c:forEach var = "pDetail" items="${projectDetail}">	
                         <div class="col-lg-6 col-md-12 col-12">
                             <div class="product-gallery product-gallery-vertical d-flex">
                                 <div class="product-img-large">
@@ -108,7 +109,7 @@
                                     }'>
                                         <div class="img-large-wrapper">
                                             <a href="assets/img/project/thumbnail/id_01.jpg" data-fancybox="gallery">
-                                                <img src="assets/img/project/thumbnail/id_01.jpg" alt="img">
+                                                <img src="${pageContext.request.contextPath}/assets/img/project/thumbnail/${pDetail.project.img}" alt="img">
                                             </a>
                                         </div>
                                     </div>
@@ -128,7 +129,7 @@
                                     }'>
                                         <div>
                                             <div class="img-thumb-wrapper">
-                                                <img src="assets/img/project/thumbnail/id_01.jpg" alt="img">
+                                                <img src="${pageContext.request.contextPath}/assets/img/project/thumbnail/${pDetail.project.img}" alt="img">
                                             </div>
                                         </div>
                                     </div>
@@ -136,29 +137,22 @@
                                 </div>
                             </div>
                         </div>
+                        
                         <div class="col-lg-6 col-md-12 col-12">
                             <div class="product-details ps-lg-4">
-                                <div class="mb-3"><span class="product-availability">실용도서</span></div>
-                                <h2 class="product-title mb-3">사진공원의 인물 촬영 보정 가이드북</h2>
+                                <div class="mb-3"><span class="product-availability">${pDetail.project.g_name}</span></div>
+                                <h2 class="product-title mb-3">${pDetail.project.title}</h2>
                                	<hr>
                                 <div class="product-price-wrapper mb-4">
-                                    <p>필름 카메라 없이 아날로그 느낌으로 보정하기! 인물 사진의 기획, 촬영법, 색감보정, 인물 리터칭의 모든 과정을 소개드려요.
-                                    	저와 함께 맑고 투명한 인물 사진을 찍고 보정해요.</p>
+                                    <p>소개글</p>
                                 </div>
                                 <div class="product-price-wrapper mb-4">
-                                    <span class="product-price regular-price" style="color:#40AFFF;">D-DAY</span>
+                                    <span class="product-price regular-price" style="color:#40AFFF;">${pDetail.project.dday}일 남음</span>
                                 </div>
                                 <div class="bar-container">
-									<div id="Content_bar" class="bar" style="width:100%">55% 달성중</div>
+									<div id="Content_bar" class="bar" style="padding-left:10px;width:${pDetail.project.achv_percent}%">${pDetail.project.achv_percent}%</div>
 								</div>
-								<p style="color: #2196F3;text-align:right;">55/100(판매부수/목표부수)</p>
-							<!--아래 %로 막대바 조절 가능-->
-								
-                             <script type="text/javascript">
-                             	$(function() {
-	                            	 document.getElementById("Content_bar").style.width = '55%';
-	                             });
-	                         </script> 
+								<p style="color: #2196F3;text-align:right;">${pDetail.project.now_amt}/${pDetail.project.goal_amt}(판매부수/목표부수)</p>
 	                            <br>
 								<!--form-->
                                 <form class="product-form" action="#">
@@ -196,7 +190,7 @@
 	                                    <div class="product-price-wrapper mb-4">
 		                                    <span class="product-price regular-price" style="color:#40AFFF;padding-right:0;">
 		                                    	<input type="hidden" name="" value=""/>
-		                                    	<h3 style="color:#F76B6A; text-align:right;">50,000원</h3>
+		                                    	<h3 style="color:#F76B6A; text-align:right;">${pDetail.project.price}원</h3>
 		                                    </span>
 		                                </div>
 	                            	 </div>
@@ -210,7 +204,7 @@
                                         <img class="rounded" src="assets/img/project/logo.png" alt="img">
                                     </div>
                                     <div style="display:inline-block;width:80%;margin-left:5px;">
-	                                    <strong>사진공원</strong><p style="display:inline-block;padding-left:10px;">비문학 작가</p>
+	                                    <strong>${pDetail.grd_user.nickname}</strong><p style="display:inline-block;padding-left:10px;">프로젝트 작가</p>
 	                                    <button type="button" style="float: right;" onClick="location.href=''">
 	                                        <span>작가 프로필 보기</span>
 	                                    </button>
@@ -218,6 +212,7 @@
                                 </div> 
                             </div>
                         </div>
+                    </c:forEach>
                     </div>
                 </div>
             </div>
@@ -237,11 +232,13 @@
                     	<!-- 상세정보 -->
                         <div id="detail" class="tab-pane fade show active">
                             <div class="row">
+                            	<c:forEach var = "pDetail" items="${projectDetail}">
                                 <div class="col-lg-12 col-md-12 col-12">
                                    	<div class="article-card bg-transparent p-0 shadow-none">
-	                                	<img src="assets/img/project/detail/id_01.jpg" alt="img" class="article-card-img rounded">    
+	                                	<img src="${pageContext.request.contextPath}/assets/img/project/detail/${pDetail.project.img}" alt="img" class="article-card-img rounded">    
                                 	</div>
                                 </div>
+                               	</c:forEach>
                             </div>
                         </div>
                         <!-- 새소식 -->

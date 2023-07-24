@@ -68,3 +68,5 @@ INSERT INTO FUNDING VALUES ('f-'||f_id.nextval,'pj-100','dpwls98');
 ----- 개인적으로 추가(07.25)--------------
 -- 작가디테일 --
 INSERT INTO AUTHOR_DETAIL ad VALUES ('tjsdud97','아날로그 스타일의 사진을 찍고 보정합니다.');
+INSERT INTO AUTHOR_DETAIL ad VALUES ('dpsk00','실패하지 않는 다이어트 경험담을 공유해드려요');
+INSERT INTO AUTHOR_DETAIL ad VALUES ('dpwls98','일상과 관련된 몰랐던 지식들이 궁금하다면?');
