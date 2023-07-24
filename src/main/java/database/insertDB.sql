@@ -65,3 +65,6 @@ INSERT INTO REVIEW VALUES ('r-'||c_id.nextval,'구매하고 인생샷 많이 건
 CREATE SEQUENCE f_id INCREMENT BY 1 START WITH 100;
 INSERT INTO FUNDING VALUES ('f-'||f_id.nextval,'pj-100','dbfla98');
 INSERT INTO FUNDING VALUES ('f-'||f_id.nextval,'pj-100','dpwls98');
+----- 개인적으로 추가(07.25)--------------
+-- 작가디테일 --
+INSERT INTO AUTHOR_DETAIL ad VALUES ('tjsdud97','아날로그 스타일의 사진을 찍고 보정합니다.');

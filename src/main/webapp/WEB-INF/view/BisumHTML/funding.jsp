@@ -21,6 +21,17 @@
     <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
     <!-- all css -->
     <style>
+	    #pj_box img {
+		  transition: all 0.2s linear;
+		  margin: 0px auto;
+		  overflow: hidden;
+		}
+	    #pj_box:hover img{
+			transform: scale(1.1);
+		}
+		#pj_box:hover h4{
+			color:#2196F3;
+		}
    		.bar-container {
 			width: 100%;
 			background-color: #f1f1f1;
@@ -132,28 +143,23 @@
                                 <div class="row">
                                   		<!-- 프로젝트 반복문  -->
                                   		<c:forEach var = "plist" items="${projectList}">
-	                                    <div class="col-lg-4 col-md-6 col-6 " data-aos="fade-up" data-aos-duration="700">
+	                                    <div class="col-lg-4 col-md-6 col-6" data-aos="fade-up" data-aos-duration="700" 
+	                                    		id="pj_box" onclick="location.href='${pageContext.request.contextPath}/funding-detail.do?pj_id=${plist.project.pj_id}';">
 	                                        <div class="product-card">
 	                                            <div class="product-card-img">
                                                     <img class="primary-img" src="assets/img/project/thumbnail/${plist.project.img}" alt="product-img">     
 	                                                <div class="product-badge">
-													    <span class="badge-label badge-percentage rounded">D-day</span>
+													    <span class="badge-label badge-percentage rounded" id="dday">${plist.project.dday}일 남음</span>
 													</div>						                                               	 
 	                                            </div>
 												<div class="product-card-details">
 												    <div class="product-card-title-container">
 												    <br>
 												        <div class="bar-container">
-															<div id="Content_bar" class="bar" style="width:100%">55% 달성중</div>
+															<div id="Content_bar" class="bar" style="padding-left:10px;width:${plist.project.achv_percent}%">${plist.project.achv_percent}%</div>
 														</div>
 														<p style="color: #2196F3;text-align:right;">${plist.project.now_amt}/${plist.project.goal_amt}(판매부수/목표부수)</p>
-														<!--아래 %로 막대바 조절 가능-->
-							                             <script type="text/javascript">
-							                             	$(function() {
-								                            	 document.getElementById("Content_bar").style.width ='55%';
-								                             });
-								                         </script> 
-											            <h4><a style="color: black;" href="#">${plist.project.title}</a></h4>
+											            <h4>${plist.project.title}</h4>
 											            <div style="text-align:right;">
 											            	<p style="padding-right:20px;">${plist.grd_user.nickname}</p>
 											            </div>

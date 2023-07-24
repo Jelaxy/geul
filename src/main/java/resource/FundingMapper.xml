@@ -11,9 +11,10 @@
 			<result column="img" property="img"/>
 			<result column="startdate" property="startdate"/>
 			<result column="enddate" property="enddate"/>
+			<result column="dday" property="dday"/>
 			<result column="goal_amt" property="goal_amt"/>
 			<result column="now_amt" property="now_amt"/>
-			<result column="goal_amt" property="goal_amt"/>
+			<result column="achv_percent" property="achv_percent"/>
 			<result column="g_id" property="g_id"/>
 			<result column="info_img" property="info_img"/>
 			<result column="u_id" property="u_id"/>
@@ -29,12 +30,27 @@
 		</association>		
 	</resultMap>	 
 	<select id="getFundingList" resultMap="pjRst">
-		SELECT p.PJ_ID , p.TITLE , p.PRICE , p.IMG , p.STARTDATE , p.ENDDATE ,p.GOAL_AMT, p.U_ID ,gu.NICKNAME, 
-		(SELECT COUNT(f.F_ID) FROM FUNDING f WHERE f.PJ_ID = p.PJ_ID ) AS NOW_AMT
+		SELECT p.PJ_ID , p.TITLE , p.PRICE , p.IMG , STARTDATE, p.ENDDATE, (TRUNC(p.ENDDATE - SYSDATE)) AS DDAY,
+		p.GOAL_AMT, (SELECT COUNT(f.F_ID) FROM FUNDING f WHERE f.PJ_ID = p.PJ_ID ) AS NOW_AMT, 
+		p.U_ID ,gu.NICKNAME,
+		(SELECT (COUNT(f.F_ID) / p.GOAL_AMT) * 100 FROM FUNDING f WHERE f.PJ_ID = p.PJ_ID) AS ACHV_PERCENT
 		FROM PROJECT p 
 		JOIN GRD_USER gu ON P.U_ID = gu.U_ID 
 		LEFT OUTER JOIN FUNDING f ON p.PJ_ID = f.PJ_ID
-		<![CDATA[AND p.STARTDATE < SYSDATE]]>
+		<![CDATA[where p.STARTDATE < SYSDATE]]>
 		ORDER BY p.ENDDATE 
+	</select>	 
+	<select id="projectDetail" resultMap="pjRst">
+		SELECT p.PJ_ID , p.TITLE , p.PRICE , p.IMG , p.INFO_IMG , c.G_NAME, 
+		STARTDATE, p.ENDDATE, (TRUNC(p.ENDDATE - SYSDATE)) AS dday,
+		p.GOAL_AMT, (SELECT COUNT(f.F_ID) FROM FUNDING f WHERE f.PJ_ID = p.PJ_ID ) AS NOW_AMT, 
+		p.U_ID ,gu.NICKNAME,
+		(SELECT (COUNT(f.F_ID) / p.GOAL_AMT) * 100 FROM FUNDING f WHERE f.PJ_ID = p.PJ_ID) AS achv_percent
+		FROM PROJECT p 
+		JOIN GRD_USER gu ON P.U_ID = gu.U_ID 
+		JOIN AUTHOR_DETAIL ad ON p.U_ID = ad.U_ID 
+		JOIN CATEGORY c ON p.G_ID  = c.G_ID 
+		LEFT OUTER JOIN FUNDING f ON p.PJ_ID = f.PJ_ID
+		where p.PJ_ID = #{pj_id}
 	</select>	 
 </mapper>	

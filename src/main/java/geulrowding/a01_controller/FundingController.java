@@ -3,7 +3,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 // geulrowding.a01_controller.A01_StartController
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
 import geulrowding.a02_service.FundingService;
 
@@ -21,5 +24,14 @@ public class FundingController {
 		return "WEB-INF\\view\\BisumHTML\\funding.jsp";
 		
 	}
+	//http://localhost:5080/geul/funding-detail.do
+	@RequestMapping("funding-detail.do")
+	public String funding_detail(@RequestParam("pj_id") String pj_id, Model d) {
+		//d.addAttribute("projectDetail", service.);
+		return "WEB-INF\\view\\BisumHTML\\funding-detail.jsp";
+	}
 	
+	
+	
+
 }
