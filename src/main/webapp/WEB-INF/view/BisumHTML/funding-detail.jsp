@@ -190,7 +190,7 @@
 	                                    <div class="product-price-wrapper mb-4">
 		                                    <span class="product-price regular-price" style="color:#40AFFF;padding-right:0;">
 		                                    	<input type="hidden" name="" value=""/>
-		                                    	<h3 style="color:#F76B6A; text-align:right;">${pDetail.project.price}원</h3>
+		                                    	<h3 style="color:#F76B6A; text-align:right;" id="price"></h3>
 		                                    </span>
 		                                </div>
 	                            	 </div>
@@ -212,6 +212,11 @@
                                 </div> 
                             </div>
                         </div>
+			<script type="text/javascript">
+				var price = ${pDetail.project.price}
+				var price_Kr = price.toLocaleString('ko-KR');
+				document.getElementById('price').innerHTML = price_Kr+'원'
+			</script> 
                     </c:forEach>
                     </div>
                 </div>
