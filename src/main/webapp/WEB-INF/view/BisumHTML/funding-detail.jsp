@@ -144,7 +144,7 @@
                                 <h2 class="product-title mb-3">${pDetail.project.title}</h2>
                                	<hr>
                                 <div class="product-price-wrapper mb-4">
-                                    <p>소개글</p>
+                                    <p>${pDetail.project.description}</p>
                                 </div>
                                 <div class="product-price-wrapper mb-4">
                                     <span class="product-price regular-price" style="color:#40AFFF;">${pDetail.project.dday}일 남음</span>

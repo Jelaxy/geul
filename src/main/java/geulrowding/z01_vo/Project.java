@@ -5,6 +5,7 @@ import java.util.Date;
 public class Project {
 	private String pj_id;
 	private String title;
+	private String description;
 	private int price;
 	private String img;
 	private int goal_amt;
@@ -12,6 +13,12 @@ public class Project {
 	private double achv_percent;
 	private String g_id;
 	private String info_img;
+	public String getDescription() {
+		return description;
+	}
+	public void setDescription(String description) {
+		this.description = description;
+	}
 	private String u_id;
 	private Date startdate;
 	private Date enddate;
@@ -19,6 +26,26 @@ public class Project {
 	//카테고리 이름..
 	private String g_name;
 	
+	public Project(String pj_id, String title, String description, int price, String img, int goal_amt, int now_amt,
+			double achv_percent, String g_id, String info_img, String u_id, Date startdate, Date enddate, int dday,
+			String g_name) {
+		super();
+		this.pj_id = pj_id;
+		this.title = title;
+		this.description = description;
+		this.price = price;
+		this.img = img;
+		this.goal_amt = goal_amt;
+		this.now_amt = now_amt;
+		this.achv_percent = achv_percent;
+		this.g_id = g_id;
+		this.info_img = info_img;
+		this.u_id = u_id;
+		this.startdate = startdate;
+		this.enddate = enddate;
+		this.dday = dday;
+		this.g_name = g_name;
+	}
 	public String getPj_id() {
 		return pj_id;
 	}

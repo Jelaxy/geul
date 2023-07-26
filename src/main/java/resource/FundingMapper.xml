@@ -8,6 +8,7 @@
 			<id column="pj_id" property="pj_id"/>
 			<result column="title" property="title"/>
 			<result column="price" property="price"/>
+			<result column="description" property="description"/>
 			<result column="img" property="img"/>
 			<result column="startdate" property="startdate"/>
 			<result column="enddate" property="enddate"/>
@@ -31,7 +32,7 @@
 		</association>		
 	</resultMap>	 
 	<select id="getFundingList" resultMap="pjRst">
-		SELECT p.PJ_ID , p.TITLE , p.PRICE , p.IMG , STARTDATE, p.ENDDATE, (TRUNC(p.ENDDATE - SYSDATE)) AS DDAY,
+		SELECT p.PJ_ID , p.TITLE ,p.description , p.PRICE , p.IMG , STARTDATE, p.ENDDATE, (TRUNC(p.ENDDATE - SYSDATE)) AS DDAY,
 		p.GOAL_AMT, (SELECT COUNT(f.F_ID) FROM FUNDING f WHERE f.PJ_ID = p.PJ_ID ) AS NOW_AMT, 
 		p.U_ID ,gu.NICKNAME,
 		(SELECT (COUNT(f.F_ID) / p.GOAL_AMT) * 100 FROM FUNDING f WHERE f.PJ_ID = p.PJ_ID) AS ACHV_PERCENT
@@ -42,7 +43,7 @@
 		ORDER BY p.ENDDATE 
 	</select>	 
 	<select id="getFunding_detail" resultMap="pjRst">
-		SELECT p.PJ_ID , p.TITLE , p.PRICE , p.IMG , p.INFO_IMG , c.G_NAME, 
+		SELECT p.PJ_ID , p.TITLE , p.description , p.PRICE , p.IMG , p.INFO_IMG , c.G_NAME, 
 		STARTDATE, p.ENDDATE, (TRUNC(p.ENDDATE - SYSDATE)) AS dday,
 		p.GOAL_AMT, (SELECT COUNT(f.F_ID) FROM FUNDING f WHERE f.PJ_ID = p.PJ_ID ) AS NOW_AMT, 
 		p.U_ID ,gu.NICKNAME,
