@@ -1,3 +1,15 @@
+-- 프로젝트 상세설명 컬럼 추가
+ALTER TABLE project ADD description VARCHAR(1000);
+UPDATE PROJECT
+SET description = '필름카메라 없이 아날로그 감성의 사진을 찍고 보정하는 법을 알려드립니다. 나만의 감성 사진을 찍어봐요.'
+WHERE PJ_ID ='pj-100';
+UPDATE PROJECT
+SET description = '양말의 역사부터 실용적인 스타일 적용까지, 양말의 모든것을 알려드립니다.'
+WHERE PJ_ID ='pj-101';
+UPDATE PROJECT
+SET description = '실용적인 다이어트 꿀팁을 알려드릴게요. 저만 믿고 따라오세요~'
+WHERE PJ_ID ='pj-102';
+
 INSERT INTO grd_user values('dbfla98','7777','서유림','율림','010-7777-7777','dbfla98@naver.com','일반');
 INSERT INTO grd_user values('tjsdud97','8888','최선영','선영언니','010-8888-8888','tjsdud97@naver.com','일반');
 INSERT INTO grd_user values('dpwls98','9999','김예진','예지니','010-9999-9999','dpwls98@naver.com','일반');

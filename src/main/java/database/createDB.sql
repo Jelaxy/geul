@@ -7,7 +7,7 @@ CREATE TABLE grd_user (
 	email	varchar2(50)	NULL,
 	authorization	varchar2(50)	NULL
 );
-
+ALTER TABLE project ADD description VARCHAR(1000);
 CREATE TABLE project (
 	pj_id	varchar2(50)	NOT NULL,
 	title	varchar2(100)	NULL,
