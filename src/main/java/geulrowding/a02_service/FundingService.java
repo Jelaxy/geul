@@ -1,11 +1,14 @@
 package geulrowding.a02_service;
 
+
+
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import geulrowding.a03_dao.FundingDao;
+import geulrowding.z01_vo.Community;
 import geulrowding.z01_vo.ProjectGrd_user;
 
 @Service
@@ -21,10 +24,13 @@ public class FundingService {
 		System.out.println("#펀딩 디테일 서비스 호출#");
 		return dao.getFunding_detail(pj_id);
 	}
-	
-	
-	
-	
+	public List<Community> communityList(String pj_id) {
+		System.out.println("#펀딩 커뮤니티 호출#");
+		return dao.getCommunityList(pj_id);
+	}
+	public String insertcommunity(Community ins) {
+		return dao.insertCommunity(ins)>0?"등록성공":"등록되지 않음";
+	}
 	
 	
 //	public void funding() {

@@ -155,7 +155,7 @@
 								<p style="color: #2196F3;text-align:right;">${pDetail.project.now_amt}/${pDetail.project.goal_amt}(판매부수/목표부수)</p>
 	                            <br>
 								<!--form-->
-                                <form class="product-form" action="#">
+                                <form class="product-form" id="goFunding" action="#">
                                 	<div class="filter-widget">
 	                                 <div class="filter-header faq-heading heading_18 d-flex align-items-center justify-content-between border-bottom"
 	                                     data-bs-toggle="collapse" data-bs-target="#filter-collection">
@@ -217,7 +217,6 @@
 							window.onload = function(){
 								eb_disabled()
 								set_price()
-								eb_text()
 					   		}
 							$("input[name='buy_option']").change(function(){
 								set_price()
@@ -235,7 +234,7 @@
 								}
 								price_Kr = price.toLocaleString('ko-KR');
 								document.getElementById('price').innerHTML = price_Kr+'원'
-								$("input[name=price]").val()=price_Kr
+								$("input[name=price]").val() = price_Kr;
 							}
 							// 목표부수의 30% 얼리버드 구매가 가능한 경우
 							function eb_disabled(){
@@ -361,39 +360,66 @@
                             </div>         
                         </div>   
                         
-                         
+                        <!-- 커뮤니티 --> 
+                        <script type="text/javascript">
+	                        $("#cmtRegBtn").click(function(){
+	                        	alert('실행')
+	                			//if(confirm("게시글을 등록하시겠습니까?")){
+	                				//alert(($("#regForm").serialize())
+	                				//$.ajax({
+	                					//url:"${path}/insertcommunity.do",
+	                					//type:"post",
+	                					//data:$("#addCcontent").serialize(),
+	                					//dataType:"text",
+	                					//success:function(data){
+	                					//	window.location.reload()
+	                					//},
+	                					//error:function(err){
+	                					//	console.log(err)
+	                					//}
+	                				//})
+	                			//}
+	                    	});
+                		
+                
+                        </script>
                         <div id="community" class="tab-pane fade">
                            <div class="comments-main">
                                <div class="comments-main-content">
+                                <c:forEach var = "cList" items="${communiryList}">
                                    <div class="comments-meta">
-                                       <h4 class="commentator-name">홍길동</h4>
+                                   <br>
+                                       <h4 class="commentator-name">${cList.nickname}</h4>
                                        <div class="comments-date article-date d-flex align-items-center">    
-                                           <span class="ms-2" style="display:inline;">2023-07-17</span>
+                                           <span class="ms-2" style="display:inline;" id="cdate">${cList.c_date}</span>
                                        </div>
-                                       <p class="comments">얼리버드일때 사는게 개꿀이에요. 저 사야되니까 펀딩좀 해주세요.</p>
+                                       <p class="comments">${cList.c_content}</p>
                                    </div>
+                                   <hr>
+                                 </c:forEach>
                                    <div class="comment-form-area">
                                         <div class="form-header">
                                             <h4 class="form-title">글 작성하기</h4>
                                             <p class="form-subtitle">펀딩과 관련된 의견을 남겨주세요.</p>
                                         </div>
-                                        <form action="#" class="comment-form">
-                                            <input type="hidden" name="id" value=""/>
+                                        <form action="#" id="addCcontent" class="comment-form">
+   <!---------------------------- 임시) 로그인 성공시 아이디를 넣어주세요. -->
+                                            <input type="hidden" name="pj_id" value="pj-100"/>
+                                            <input type="hidden" name="u_id" value="dpsk00"/>
                                             <div class="field-item textarea-field">
                                                 <span class="field-icon">
                                                     <svg width="20" height="19" viewBox="0 0 20 19" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                         <path d="M0.25 0.75V14.25H4V18.0586L8.76367 14.25H19.75V0.75H0.25ZM1.75 2.25H18.25V12.75H8.23633L5.5 14.9385V12.75H1.75V2.25ZM5.5 6C4.6709 6 4 6.6709 4 7.5C4 8.3291 4.6709 9 5.5 9C6.3291 9 7 8.3291 7 7.5C7 6.6709 6.3291 6 5.5 6ZM10 6C9.1709 6 8.5 6.6709 8.5 7.5C8.5 8.3291 9.1709 9 10 9C10.8291 9 11.5 8.3291 11.5 7.5C11.5 6.6709 10.8291 6 10 6ZM14.5 6C13.6709 6 13 6.6709 13 7.5C13 8.3291 13.6709 9 14.5 9C15.3291 9 16 8.3291 16 7.5C16 6.6709 15.3291 6 14.5 6Z" fill="#00234D"/>
                                                     </svg>                                                        
                                                 </span>
-                                                <textarea name="" cols="20" rows="6" placeholder="내용을 입력해주세요."></textarea>
+                                                <textarea name="c_content" cols="20" rows="6" placeholder="내용을 입력해주세요."></textarea>
                                             </div>
-                                            <button type="submit" class="position-relative review-submit-btn mt-4">작성완료</button>
+                                            <button type="button" id="cmtRegBtn" class="position-relative review-submit-btn mt-4">작성완료</button>
                                         </form>
                                     </div>
                         		</div>
-                    		
-                    	</div>
-                	</div>
+                    		</div>
+                		</div>
                 </div>
             </div>
            </div>

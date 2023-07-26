@@ -7,6 +7,8 @@
 		접근하여 사용가능하다. -->
 		<typeAlias alias="grd_user" type="geulrowding.z01_vo.Grd_user"/>
 		<typeAlias alias="project" type="geulrowding.z01_vo.Project"/>
+		<typeAlias alias="category" type="geulrowding.z01_vo.Category"/>
+		<typeAlias alias="community" type="geulrowding.z01_vo.Community"/>
 		<typeAlias alias="projectGrd_user" type="geulrowding.z01_vo.ProjectGrd_user"/>	
 	</typeAliases>
 	<mappers>
