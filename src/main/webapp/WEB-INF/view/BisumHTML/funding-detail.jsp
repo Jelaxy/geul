@@ -172,14 +172,14 @@
 	                                        <ul class="filter-lists list-unstyled mb-0">
 	                                            <li class="filter-item">
 	                                                <label class="filter-label">
-	                                                    <input type="radio" name="buy_option" value="" style="display: none;"/>
+	                                                    <input type="radio" name="buy_option" value="eb_price" id="eb_price" style="display: none;"/>
 	                                                    <span class="filter-checkbox rounded me-2"></span>
-	                                                    <span class="filter-text">얼리버드 15%off (5명 남음)</span>
+	                                                    <span class="filter-text" id="eb_text">얼리버드 잔여수량</span>
 	                                                </label>
 	                                            </li>
 	                                            <li class="filter-item">
 	                                                <label class="filter-label">
-	                                                    <input type="radio" name="buy_option" value="" style="display: none;"/>
+	                                                    <input type="radio" name="buy_option" value="nm_price" id="nm_price"style="display: none;"/>
 	                                                    <span class="filter-checkbox rounded me-2"></span>
 	                                                    <span class="filter-text">기본 금액</span>
 	                                                </label>
@@ -189,7 +189,7 @@
 	                             
 	                                    <div class="product-price-wrapper mb-4">
 		                                    <span class="product-price regular-price" style="color:#40AFFF;padding-right:0;">
-		                                    	<input type="hidden" name="" value=""/>
+		                                    	<input type="hidden" name="price" value=""/>
 		                                    	<h3 style="color:#F76B6A; text-align:right;" id="price"></h3>
 		                                    </span>
 		                                </div>
@@ -212,11 +212,60 @@
                                 </div> 
                             </div>
                         </div>
-			<script type="text/javascript">
-				var price = ${pDetail.project.price}
-				var price_Kr = price.toLocaleString('ko-KR');
-				document.getElementById('price').innerHTML = price_Kr+'원'
-			</script> 
+						<script type="text/javascript">
+						// 기본 금액
+							window.onload = function(){
+								eb_disabled()
+								set_price()
+								eb_text()
+					   		}
+							$("input[name='buy_option']").change(function(){
+								set_price()
+							});
+							// 얼리버드 할인 체크시 15% 할인 금액으로 표기
+							function set_price(){
+								var price = ""
+								var price_Kr = ""
+								var p_checked = $("input[name=buy_option]:checked")
+								var p_checked_val = p_checked.val();
+								if(p_checked_val=='eb_price'){
+									price = ${pDetail.project.price}*0.85
+								}else if(p_checked_val=='nm_price'){
+									price = ${pDetail.project.price}
+								}
+								price_Kr = price.toLocaleString('ko-KR');
+								document.getElementById('price').innerHTML = price_Kr+'원'
+								$("input[name=price]").val()=price_Kr
+							}
+							// 목표부수의 30% 얼리버드 구매가 가능한 경우
+							function eb_disabled(){
+								// 부등호를 바꿔서 테스트 가능!
+								// 얼리버드가 닫혀있을 때가 if, 열려있을 때가 else
+								if(${pDetail.project.goal_amt}*0.3<${pDetail.project.now_amt}){
+									// 얼리버드 버튼 비활성화
+									$('#eb_price').attr('disabled', 'true');
+									// 얼리버드 텍스트 취소선 
+									$('#eb-text').css('text-decoration','line-through');
+									//기본 체크를 일반으로
+									$("#nm_price").prop("checked",true);
+									$("#eb_price").prop("checked",false);
+								}else{
+									//기본 체크를 얼리버드로
+									$("#nm_price").prop("checked",false);
+									$("#eb_price").prop("checked",true);
+								}
+							}
+							// 남은 얼리버드 수량
+							var eb_tot = ${pDetail.project.goal_amt}*0.3
+							var now_amt = ${pDetail.project.now_amt}
+							var extra = Math.floor(eb_tot - now_amt) 
+							var eb_text = document.getElementById('eb_text')
+							if(extra>0){
+								eb_text.innerText = '얼리버드 15%off('+extra+'명 남음)';
+							}else{
+								eb_text.innerText = '얼리버드 15%off(0명 남음)';
+							}
+						</script> 
                     </c:forEach>
                     </div>
                 </div>
