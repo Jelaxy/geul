@@ -16,7 +16,7 @@ public interface FundingDao {
 	@Select("select c.C_ID , c.C_CONTENT ,c.U_ID , TO_DATE(c.C_DATE, 'YY-MM-DD') AS C_DATE ,gu.NICKNAME \r\n"
 			+ "FROM COMMUNITY c\r\n"
 			+ "JOIN GRD_USER gu ON c.U_ID = gu.U_ID \r\n"
-			+ "WHERE PJ_ID = #{pj_id}")
+			+ "WHERE PJ_ID = #{pj_id} order by c.C_DATE desc")
 	public List<Community> getCommunityList(String pj_id);
 	
 	@Insert("INSERT INTO COMMUNITY c values('c-'||c_id.nextval,#{c_content},#{pj_id},#{u_id},sysdate)")

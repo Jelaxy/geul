@@ -35,8 +35,8 @@ public class FundingController {
 	}
 	
 	@RequestMapping("insertcommunity.do")
-	public ResponseEntity<String> insertcommunity(Community ins) {
-		return ResponseEntity.ok(service.insertcommunity(ins));
+	public String insertcommunity(Community ins) {
+		return service.insertcommunity(ins);
 	}
 	
 	
