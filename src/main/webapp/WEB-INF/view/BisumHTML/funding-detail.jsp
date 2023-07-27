@@ -244,7 +244,7 @@
 									// 얼리버드 버튼 비활성화
 									$('#eb_price').attr('disabled', 'true');
 									// 얼리버드 텍스트 취소선 
-									$('#eb-text').css('text-decoration','line-through');
+									$('#eb_text').css('text-decoration','line-through');
 									//기본 체크를 일반으로
 									$("#nm_price").prop("checked",true);
 									$("#eb_price").prop("checked",false);
@@ -402,7 +402,7 @@
                 		</div>
                 		<script type="text/javascript">
 	                        $("#cmtRegBtn").click(function(){
-	                        	alert('실행')
+	                        	if(confirm("게시글을 등록하시겠습니까?")){
 	                				alert($("#addCcontent").serialize())
 	                				$.ajax({
 	                					url:"${path}/insertcommunity.do",
