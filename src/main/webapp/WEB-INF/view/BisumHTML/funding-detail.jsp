@@ -213,7 +213,10 @@
                             </div>
                         </div>
 						<script type="text/javascript">
-						// 기본 금액
+		//////////////// href로 넘긴 pj_id를 el태그로 받는 방법/// 이후 펀딩으로 넘길 때!!!!!!! 추가하기
+                		var pj_id = "${param.pj_id}"
+						
+							// 기본 금액 세팅
 							window.onload = function(){
 								eb_disabled()
 								set_price()
@@ -234,7 +237,8 @@
 								}
 								price_Kr = price.toLocaleString('ko-KR');
 								document.getElementById('price').innerHTML = price_Kr+'원'
-								$("input[name=price]").val() = price_Kr;
+								//alert(price_Kr)
+								$("input[name=price]").val(price_Kr);
 							}
 							// 목표부수의 30% 얼리버드 구매가 가능한 경우
 							function eb_disabled(){
@@ -370,7 +374,7 @@
                                </div>
                                <form id="addCcontent" class="comment-form">
 <!---------------------------- 임시) 로그인 성공시 아이디를 넣어주세요. -->
-                                   <input type="hidden" name="pj_id" value="pj-100"/>
+                                   <input type="hidden" name="pj_id" value="${param.pj_id}"/>
                                    <input type="hidden" name="u_id" value="dpsk00"/>
                                    <div class="field-item textarea-field">
                                        <span class="field-icon">
@@ -391,25 +395,27 @@
                                    <br>
                                        <h4 class="commentator-name">${cList.nickname}</h4>
                                        <div class="comments-date article-date d-flex align-items-center">    
-                                           <span class="ms-2" style="display:inline;" id="cdate">${cList.c_date}</span>
+                                           <span class="ms-2" style="display:inline;" id="cdate">
+                                           		<fmt:formatDate value="${cList.c_date}" pattern="yyyy-mm-dd HH:ss" />
+                                           </span>
                                        </div>
                                        <p class="comments">${cList.c_content}</p>
                                    </div>
-                                   <hr>
+                                   <hr>    
                                  </c:forEach>
                         		</div>
                     		</div>
                 		</div>
                 		<script type="text/javascript">
 	                        $("#cmtRegBtn").click(function(){
-	                        	if(confirm("게시글을 등록하시겠습니까?")){
-	                				alert($("#addCcontent").serialize())
+	                        	if(confirm("게시글을 등록하시겠습니까?")){		
 	                				$.ajax({
 	                					url:"${path}/insertcommunity.do",
 	                					type:"post",
 	                					data:$("#addCcontent").serialize(),
 	                					dataType:"text",
 	                					success:function(data){
+	                						alert('등록되었습니다.')
 	                						location.reload();
 	                					},
 	                					error:function(err){

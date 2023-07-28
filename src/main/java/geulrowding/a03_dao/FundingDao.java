@@ -13,7 +13,7 @@ public interface FundingDao {
 	public List<ProjectGrd_user> getFundingList();
 	public List<ProjectGrd_user> getFunding_detail(String pj_id);
 	
-	@Select("select c.C_ID , c.C_CONTENT ,c.U_ID , TO_DATE(c.C_DATE, 'YY-MM-DD') AS C_DATE ,gu.NICKNAME \r\n"
+	@Select("select c.C_ID , c.C_CONTENT ,c.U_ID , c.C_DATE ,gu.NICKNAME \r\n"
 			+ "FROM COMMUNITY c\r\n"
 			+ "JOIN GRD_USER gu ON c.U_ID = gu.U_ID \r\n"
 			+ "WHERE PJ_ID = #{pj_id} order by c.C_DATE desc")
