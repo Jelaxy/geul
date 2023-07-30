@@ -49,8 +49,6 @@ public class FundingController {
 	//http://localhost:5080/geul/open_detail.do
 		@RequestMapping("open_detail.do")
 		public String open_detail(@RequestParam("pj_id") String pj_id, Model d) {
-			// pj_id는 필요없고 나중에 u_id나 session에 추가하기
-			// HttpSession session 위에 선언하고, session.setAttribute("pj_id", pj_id);
 			d.addAttribute("projectDetail", service.fundingDetail(pj_id));
 			d.addAttribute("communiryList", service.communityList(pj_id));
 			d.addAttribute("noticeList", service.noticeList(pj_id));
