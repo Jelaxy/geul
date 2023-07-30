@@ -147,15 +147,18 @@
                                     <p>${pDetail.project.description}</p>
                                 </div>
                                 <div class="product-price-wrapper mb-4">
-                                    <span class="product-price regular-price" style="color:#40AFFF;">${pDetail.project.dday}일 남음</span>
+                                    <span class="product-price regular-price" style="color:#F76B6A;">
+                                    	오픈예정: <fmt:formatDate value="${pDetail.project.startdate}" pattern="yyyy-MM-dd" /></span><br>
                                 </div>
+                                <!--
                                 <div class="bar-container">
 									<div id="Content_bar" class="bar" style="padding-left:10px;width:${pDetail.project.achv_percent}%">${pDetail.project.achv_percent}%</div>
 								</div>
 								<p style="color: #2196F3;text-align:right;">${pDetail.project.now_amt}/${pDetail.project.goal_amt}(판매부수/목표부수)</p>
+	                             -->
 	                            <br>
 								<!--form-->
-                                <form class="product-form" id="goFunding" action="checkout_reward.jsp">
+                                <form class="product-form" id="goFunding" action="">
                                 	<div class="filter-widget">
 	                                 <div class="filter-header faq-heading heading_18 d-flex align-items-center justify-content-between border-bottom"
 	                                     data-bs-toggle="collapse" data-bs-target="#filter-collection">
@@ -196,7 +199,7 @@
 		                                </div>
 	                            	 </div>
                                     <div class="buy-it-now-btn mt-2">
-                                        <button type="submit" class="position-relative btn-atc btn-buyit-now">펀딩하기</button>
+                                        <button type="button" id="funding_btn" class="position-relative btn-atc btn-buyit-now">펀딩하기</button>
                                     </div>
                                 </form>       
                                 <br>
@@ -215,6 +218,11 @@
                             </div>
                         </div>
 						<script type="text/javascript">
+						//펀딩 버튼 클릭시 오픈예정 알림
+						$('#funding_btn').click(function () {
+							alert('오픈 예정 상품입니다.')
+							location.reload();
+						});
 							// 기본 세팅
 							window.onload = function(){
 								eb_disabled()

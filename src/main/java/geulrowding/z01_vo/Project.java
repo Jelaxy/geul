@@ -34,7 +34,7 @@ public class Project {
 		this.title = title;
 		this.description = description;
 		this.price = price;
-		this.img = img;
+		this.img = img; 
 		this.goal_amt = goal_amt;
 		this.now_amt = now_amt;
 		this.achv_percent = achv_percent;

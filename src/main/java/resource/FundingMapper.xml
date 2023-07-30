@@ -39,9 +39,20 @@
 		FROM PROJECT p 
 		JOIN GRD_USER gu ON P.U_ID = gu.U_ID 
 		LEFT OUTER JOIN FUNDING f ON p.PJ_ID = f.PJ_ID
-		<![CDATA[and p.STARTDATE < SYSDATE]]>
+		<![CDATA[WHERE p.STARTDATE < SYSDATE]]>
 		ORDER BY p.ENDDATE 
 	</select>	 
+	<select id="getOpenList" resultMap="pjRst">
+		SELECT p.PJ_ID , p.TITLE ,p.description , p.PRICE , p.IMG , STARTDATE, p.ENDDATE, (TRUNC(p.ENDDATE - SYSDATE)) AS DDAY,
+		p.GOAL_AMT, (SELECT COUNT(f.F_ID) FROM FUNDING f WHERE f.PJ_ID = p.PJ_ID ) AS NOW_AMT, 
+		p.U_ID ,gu.NICKNAME,
+		(SELECT (COUNT(f.F_ID) / p.GOAL_AMT) * 100 FROM FUNDING f WHERE f.PJ_ID = p.PJ_ID) AS ACHV_PERCENT
+		FROM PROJECT p 
+		JOIN GRD_USER gu ON P.U_ID = gu.U_ID 
+		LEFT OUTER JOIN FUNDING f ON p.PJ_ID = f.PJ_ID
+		<![CDATA[WHERE p.STARTDATE > SYSDATE]]>
+		ORDER BY p.ENDDATE 
+	</select>
 	<select id="getFunding_detail" resultMap="pjRst">
 		SELECT p.PJ_ID , p.TITLE , p.description , p.PRICE , p.IMG , p.INFO_IMG , c.G_NAME, 
 		STARTDATE, p.ENDDATE, (TRUNC(p.ENDDATE - SYSDATE)) AS dday,
