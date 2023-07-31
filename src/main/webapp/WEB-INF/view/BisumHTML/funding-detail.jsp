@@ -85,8 +85,8 @@
         }
     </style>
 
-    <link rel="stylesheet" href="assets/css/vendor.css">
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/vendor.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/style.css">
 </head>
 <body>
     <div class="body-wrapper">
@@ -429,8 +429,8 @@
        <!-- footer -->
        <jsp:include page="./footer.jsp" flush="true"/>
         <!-- all js -->
-        <script src="assets/js/vendor.js"></script>
-        <script src="assets/js/main.js"></script>
+        <script src="${pageContext.request.contextPath}/assets/js/vendor.js"></script>
+        <script src="${pageContext.request.contextPath}/assets/js/main.js"></script>
     </div>
 </body>
 
