@@ -20,14 +20,6 @@ public class FundingController {
 	@Autowired
 	private FundingService service;
 	
-	//프로젝트 생성
-	//http://localhost:5080/geul/uploadProject.do
-	@RequestMapping("uploadProject.do")
-	public String uploadProject(Model d) {
-		System.out.println("프로젝트 리스트 호출.");	
-		//d.addAttribute("projectList",service.fundingList());
-		return "WEB-INF\\view\\BisumHTML\\uploadProject.jsp";
-	}
 	//펀딩리스트
 	//http://localhost:5080/geul/funding.do
 	//http://192.168.10.113:5080/geul/funding.do

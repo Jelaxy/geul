@@ -7,6 +7,7 @@ import org.apache.ibatis.annotations.Select;
 
 import geulrowding.z01_vo.Community;
 import geulrowding.z01_vo.Notice;
+import geulrowding.z01_vo.Project;
 import geulrowding.z01_vo.ProjectGrd_user;
 
 public interface FundingDao {
@@ -30,4 +31,6 @@ public interface FundingDao {
 			+ "JOIN GRD_USER gu ON p.U_ID = gu.U_ID\r\n"
 			+ "WHERE n.PJ_ID = #{pj_id} ORDER BY n.N_DATE DESC")
 	public List<Notice> getNoticeList(String pj_id);
-}
+	
+	
+}	

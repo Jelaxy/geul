@@ -2,15 +2,20 @@ package geulrowding.a02_service;
 
 
 
+
+import java.io.IOException;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
 import geulrowding.a03_dao.FundingDao;
 import geulrowding.z01_vo.Community;
 import geulrowding.z01_vo.Notice;
+import geulrowding.z01_vo.Project;
 import geulrowding.z01_vo.ProjectGrd_user;
+
 
 @Service
 public class FundingService {
@@ -41,6 +46,5 @@ public class FundingService {
 		return dao.getNoticeList(pj_id);
 	}
 	
-
 	
 }
