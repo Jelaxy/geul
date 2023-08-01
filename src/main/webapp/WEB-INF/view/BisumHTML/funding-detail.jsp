@@ -291,7 +291,7 @@
                             	<c:forEach var ="pDetail" items="${projectDetail}">
                                 <div class="col-lg-12 col-md-12 col-12">
                                    	<div class="article-card bg-transparent p-0 shadow-none">
-	                                	<img src="${pageContext.request.contextPath}/assets/img/project/detail/${pDetail.project.img}" alt="img" class="article-card-img rounded">    
+	                                	<img src="${pageContext.request.contextPath}/assets/img/project/detail/${pDetail.project.info_img}" alt="img" class="article-card-img rounded">    
                                 	</div>
                                 </div>
                                	</c:forEach>

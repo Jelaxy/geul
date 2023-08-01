@@ -86,9 +86,9 @@
 	                            <p class="section-subheading">나만의 프로젝트를 만들어보세요.</p>
 	                        </div>
                             <div class="project-creation-form">
-                                <form method="" enctype="multipart/form-data" class="contact-form">
+                                <form method="post" enctype="multipart/form-data" class="contact-form">
                                     <div class="row">
-                                    	<input type="hidden" id="u_id" name="u_id" value="${u_id}"/>
+                                    	<input type="hidden" id="u_id" name="u_id" value="tjsdud97"/>
                                      <!-- 프로젝트 제목 -->
                                         <div class="col-8">
                                             <label style="margin-top:10px;font-weight:bold;font-size:20px;" for="title">프로젝트 제목</label>

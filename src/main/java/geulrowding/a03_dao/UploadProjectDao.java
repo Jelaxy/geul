@@ -13,6 +13,6 @@ import geulrowding.z01_vo.ProjectGrd_user;
 public interface UploadProjectDao {
 	
 	@Insert("INSERT INTO PROJECT VALUES ('pj-'||pj_id.nextval, #{title}, #{price}, #{img}, "
-			+ "TO_DATE(#{startdateS}, 'YYYY-MM-DD'), TO_DATE(#{enddateS}, 'YYYY-MM-DD'), #{goal_amt}, #{g_id}, #{Info_img} ,#{u_id}, #{description})")
+			+ "TO_DATE(#{startdateS}, 'YYYY-MM-DD'), TO_DATE(#{enddateS}, 'YYYY-MM-DD'), #{goal_amt}, #{g_id}, #{info_img} ,#{u_id}, #{description})")
 	public void insertProject(Project ins);
 }	

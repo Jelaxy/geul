@@ -65,7 +65,14 @@
 		<property name="basePackage" 
 			value="geulrowding.a03_dao"/>
 	</bean>
+	<!-- 멀티파티파일처리 -->
+	<bean id="multipartResolver"
+		class="org.springframework.web.multipart.commons.CommonsMultipartResolver"/>
 	
+	
+	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="order" value="1"/>
+	</bean>	 
 </beans>   
 
 

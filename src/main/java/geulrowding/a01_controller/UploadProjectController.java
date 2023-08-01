@@ -31,12 +31,15 @@ public class UploadProjectController {
 		return "WEB-INF\\view\\BisumHTML\\uploadProject.jsp";
 	}
 	@PostMapping("uploadProject.do")
-    public String uploadProject(Project ins,Model d) {
+    public String uploadProject(@RequestParam("imgFile") MultipartFile[] imgFile,
+    							@RequestParam("info_imgFile") MultipartFile[] info_imgFile,
+    										Project ins,Model d) {
+		System.out.println("test실행");
 		System.out.println(ins.getTitle());
 		System.out.println(ins.getPrice());
 		System.out.println(ins.getStartdateS());
-        if (ins.getTitle() != null) {
-            d.addAttribute("msg", service.uploadProject(ins));
+        if (ins.getTitle()!= null) {
+            d.addAttribute("msg", service.uploadProject(imgFile,info_imgFile,ins));
         }
         return "WEB-INF\\view\\BisumHTML\\uploadProject.jsp";
 	 }
