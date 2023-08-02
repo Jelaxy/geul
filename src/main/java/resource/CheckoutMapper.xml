@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd" >	
+<mapper namespace="geulrowding.a03_dao.CheckoutDao">
+
+	<update id="insCard" parameterType="paycard_info">
+		UPDATE paycard_info
+		SET expiration_date = #{expiration_date}, cvc = #{cvc},
+				paycard_number = #{paycard_number}
+		WHERE u_id = #{u_id}
+	</update>
+	<select id="getReward" resultType="project" parameterType="string">
+		SELECT title, price, img
+		FROM project
+		WHERE PJ_ID = #{PJ_ID}
+	</select>
+	<select id="getAddress" resultType="address" parameterType="string">
+		SELECT ad_detail, ad_normal, ad_num
+		FROM ADDRESS
+		WHERE u_id = #{u_id}
+	</select>
+	
+</mapper>	

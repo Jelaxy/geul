@@ -1,6 +1,5 @@
-package spring.a04_vo;
+package geulrowding.z01_vo;
 
-// spring.a04_vo.Category
 public class Category {
 
 	private String g_id;
