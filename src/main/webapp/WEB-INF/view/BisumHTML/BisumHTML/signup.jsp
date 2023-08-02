@@ -75,61 +75,17 @@
 
     <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/vendor.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/style.css">
-	  
-    <!--  
-    <script type="text/javascript">
-    
-	$(document).ready(function(){
-		
-		$("#signupf").click(function(){
-			if($("#id_check").val()=="유효성확인"){
-				alert("직책아이디 유효성 확인 하여야 등록가능 합니다.")
-				return
-			}		
-			$("form").submit()
-		})
-		
-		$("#id_check").click(function(){
-			if($(this).val()=="유효성확인"){
-				var len = $("#id_id").val().length
-			 	ckValid("job_id","checkU_id.do")
-			 	}
-			}else{
-				if(confirm("다시 입력해주세요.")){
-					$(this).val("유효성확인")
-					$(this).prev().attr("readonly",false).focus()
-				}
-			}
-		})
-	});
-	// 매개변수1:유효성 확인할 name이나 id 값을 설정
-	// 매개변수2:check할 유효성 확인 controller 주소..
-	function ckValid(tar_str, url){
-	 	 
- 		$.ajax({
- 			url:"${path}/"+url,
- 			data:tar_str+"="+$("#"+tar_str).val(),
- 			dataType:"text",
- 			success:function(msg){
- 				var msg = msg.replaceAll("\"","")
- 				alert(msg)
- 				if(msg=="등록가능"){
- 					$("#"+tar_str).next().val("유효성재확인")
- 					$("#"+tar_str).attr("readonly",true)
- 				}else{
- 					alert(tar_str+" 입력하세요")
- 					$("#"+tar_str).val("").focus()
- 				}
-	 		},
-	 		error:function(err){
-	 			console.log(err)
-	 		}
-	 	})
- 	}
-
-</script>
-  -->  
-    
+	
+	<script type="text/javascript">
+    	// window.onload와 동일한 메서드
+    	$(document).ready( function(){
+    	    $("#suFrm").submit(function () {
+    	    	if(confirm("등록화면 이동합니다.")){
+    				//location.href="${path}/jobInsert.do"
+    			}
+    		})
+    	});
+    </script>      
 </head>
 
 <body>
@@ -159,7 +115,7 @@
         <main id="MainContent" class="content-for-layout">
             <div class="login-page mt-100">
                 <div class="container">
-                    <form action="/geulrowding/login.do" id="suFrm" method="post" class="login-form common-form mx-auto">
+                    <form action="/geul2/login.do" id="suFrm" method="post" class="login-form common-form mx-auto">
                         <div class="section-header mb-3">
                             <h2 class="section-heading text-center">Signup</h2>
                         </div>
@@ -173,7 +129,7 @@
                                 	※ 아이디는 영문, 숫자를 포함하여 6~12자 내로 설정하십시오.</span><br>
 		                            <span id="id_able"></span>
                                 	<div class="col-4 mt-3">
-		                                <button type="button" id="id_check"
+		                                <button type="button" id="id_check" onclick="checkMember()"
 		                                 class="btn-primary d-block mt-3 btn-signin">중복 확인</button>
 		                            </div>
                                 </fieldset>
@@ -216,7 +172,7 @@
                                 </fieldset>
                             </div>
                             <div class="col-12 mt-3">
-                                <button type="button" id="signupf" class="btn-primary d-block mt-3 btn-signin"
+                                <button type="submit" id="submit_button" class="btn-primary d-block mt-3 btn-signin"
                                 onclick="emailCheck()">회원가입</button>
                             </div>
                         </div>
@@ -269,6 +225,19 @@
             
         }
     };
+	/* 아이디 중복확인--수정요 */
+	function checkMember(){
+		var idOb = document.querySelector("#u_id");
+		alert(idOb.value+"은 사용 가능한 아이디입니다.");
+		var id_condition=true;
+	}
+	
+
+	function checkMember(){
+		var idOb = document.querySelector("#u_id");
+		alert(idOb.value+"은 사용 가능한 아이디입니다.");
+		var id_condition=true;
+	}
 
     /* 비밀번호 유효성 검사 */
     var pass = document.querySelector("[name=pass]");

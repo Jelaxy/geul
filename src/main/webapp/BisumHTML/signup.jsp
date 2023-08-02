@@ -16,7 +16,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="meta description">
-    <link rel="shortcut icon" href="assets/img/favicon.png" type="image/x-icon">
+    <link rel="shortcut icon" href="${pageContext.request.contextPath}/assets/img/favicon.png" type="image/x-icon">
     <!-- fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -72,13 +72,13 @@
         }
     </style>
 
-    <link rel="stylesheet" href="assets/css/vendor.css">
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/vendor.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/style.css">
 </head>
 
 <body>
     <div class="body-wrapper">
-		<jsp:include page="./header.jsp" flush="true"/>
+		<!--<jsp:include page="./header.jsp" flush="true"/>-->
         <!-- breadcrumb start -->
         <div class="breadcrumb">
             <div class="container">
@@ -112,7 +112,7 @@
                                 <fieldset>
                                     <label class="id">*아이디</label>
                                     <input type="text" id="u_id" name="u_id"
-                                    		placeholder="아이디 입력"/>
+                                    		placeholder="아이디 입력" required/>
                                     <span style="font-size:12px"> 
                                 	※ 아이디는 영문, 숫자를 포함하여 6~12자 내로 설정하십시오.</span><br>
 		                            <span id="id_able"></span>
@@ -126,10 +126,10 @@
                                 <fieldset>
                                     <label class="label">*비밀번호</label>
                                     <input type="password" id="pass" name="pass" onkeyup="submit_able()"
-                                    		placeholder="비밀번호 입력"/>
+                                    		placeholder="비밀번호 입력" required/>
                                     <span id="pass_able"></span><br>
                                     <input type="password" id="pass_check" name="passcheck" 
-                                    		placeholder="비밀번호 확인" onkeyup="submit_able()"/>
+                                    		placeholder="비밀번호 확인" onkeyup="submit_able()" required/>
                                     <span id="pass_error"></span><br>
                                     <span style="font-size:12px"> 
                                     ※ 비밀번호는 영문, 숫자, 특수문자를 포함하여 8~16자 내로 설정하십시오.</span><br>
@@ -138,58 +138,37 @@
                             <div class="col-12">
                                 <fieldset>
                                     <label class="label">*이름</label>
-                                    <input type="text" id="name" name="name" placeholder="이름 입력"/>
+                                    <input type="text" id="name" name="name" placeholder="이름 입력" required/>
                                 </fieldset>
                             </div>
                             <div class="col-12">
                                 <fieldset>
-                                    <label class="label">*전화번호</label>
-                                    <input type="text" id="phn_num" name="phn_num" placeholder="전화번호 입력"/>
+                                    <label class="label">*닉네임</label>
+                                    <input type="text" id="nickname" name="nickname" placeholder="닉네임 입력" required/>
+                                </fieldset>
+                            </div>
+                            <div class="col-12">
+                                <fieldset>
+                                    <label class="label">*휴대폰 번호</label>
+                                    <input type="text" id="phn_num" name="phn_num" placeholder="전화번호 입력" required/>
                                 </fieldset>
                             </div>
                             <div class="col-12">
                                 <fieldset>
                                     <label class="label">*이메일</label>
-                                    <input type="text" name="nickname" placeholder="이메일 입력"/>
-                                </fieldset>
-                            </div>
-                            <div class="col-12">
-                                <fieldset>
-                                    <label class="label">주소</label>
-                                    <input type="text" name="address" placeholder="주소 입력"/>
-                                </fieldset>
-                            </div>
-                            <div class="col-12">
-                                <fieldset>
-                                    <label>결제 카드 정보</label>
-                                    <select name="pay_cinfo">
-									    <option value="" selected="selected">은행선택</option>
-									    <option value="">하나은행</option>
-									    <option value="">농협은행</option>
-									    <option value="">국민은행</option>
-									</select>
-                                </fieldset>
-                            </div>
-                            <div class="col-12">
-                                <fieldset>
-                                    <label class="label">선호장르</label>
-                                    <select name="genre">
-									    <option selected="selected">장르선택</option>
-									    <option value="장르1">장르1</option>
-									    <option value="장르2">장르2</option>
-									    <option value="장르3">장르3</option>
-									</select>
+                                    <input type="text" id="email" name="email" placeholder="이메일 입력" required/>
                                 </fieldset>
                             </div>
                             <div class="col-12 mt-3">
-                                <button type="submit" id="submit_button" class="btn-primary d-block mt-3 btn-signin">회원가입</button>
+                                <button type="submit" id="submit_button" class="btn-primary d-block mt-3 btn-signin"
+                                onclick="emailCheck()">회원가입</button>
                             </div>
                         </div>
                     </form>
                 </div>
             </div>            
         </main>
-       <jsp:include page="./footer.jsp" flush="true"/>
+       <!--<jsp:include page="./footer.jsp" flush="true"/>-->
         
         <!-- all js -->
     <script type="text/javascript">
@@ -234,7 +213,7 @@
             
         }
     };
-	/* 아이디 중복확인 */
+	/* 아이디 중복확인--수정요 */
 	function checkMember(){
 		var idOb = document.querySelector("#u_id");
 		alert(idOb.value+"은 사용 가능한 아이디입니다.");
@@ -288,31 +267,26 @@
         phnum.value = inputValue.replace(/(\d{3})(\d{4})(\d)/, "$1-$2-$3");
     });
     
-    /* 이메일 주소 선택 */
-    function selectEmail(){
-    	email_address.value = document.querySelector("[name=email_address_select]").value
-    }
+    /* 이메일 유효성검사 */
+    function emailCheck(){
+    	var emailV= document.querySelector("[name=email]").value
+    	var exptext = /^[A-Za-z0-9_\.\-]+@[A-Za-z0-9\-]+\.[A-Za-z0-9\-]+/;
+    	if(exptext.test(emailV)==false){
+		//이메일 형식이 알파벳+숫자@알파벳+숫자.알파벳+숫자 형식이 아닐경우			
+		alert("이메일형식이 올바르지 않습니다.");
+		document.querySelector("[name=email]").emailV.focus();
 
-    /* 회원가입버튼 활성화 조건식 */
-    /*
-    	condition_id: id중복확인 성공시 true
-    	condition_pass: 비밀번호 조건 만족하면 1을 반환
-    	condition_pass_check: 비밀번호와 비밀번호 확인에 입력한 값이 같은 경우 1을 반환
-    	checkNumTrue: 인증번호 통과시 true
-    	모두 true일 경우 회원가입버튼 활성화
-    */
-	function checkSubmitButton() {
-		if (condition_id&&condition_pass&&condition_pass_check) {
-			submit_button.disabled = false;
-		} else {
-			submit_button.disabled = true;
+		return false;
 		}
+		
 	}
+
+   
 
 	</script>
         
-        <script src="assets/js/vendor.js"></script>
-        <script src="assets/js/main.js"></script>
+        <script src="${pageContext.request.contextPath}/assets/js/vendor.js"></script>
+        <script src="${pageContext.request.contextPath}/assets/js/main.js"></script>
     </div>
 </body>
 

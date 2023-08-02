@@ -10,11 +10,12 @@
 		<typeAlias alias="category" type="geulrowding.z01_vo.Category"/>
 		<typeAlias alias="community" type="geulrowding.z01_vo.Community"/>
 		<typeAlias alias="projectGrd_user" type="geulrowding.z01_vo.ProjectGrd_user"/>	
+		<typeAlias alias="author_detail" type="geulrowding.z01_vo.Author_detail"/>	
+		<typeAlias alias="bank_account" type="geulrowding.z01_vo.Bank_account"/>	
 	</typeAliases>
 	<mappers>
 		<!-- sql을 입력값과 리턴값에 의해 실제 객체를 만들어 주는 xml
 			선언 위치 지정 -->
 		<mapper resource="resource/FundingMapper.xml"/>	
-
 	</mappers>
 </configuration>

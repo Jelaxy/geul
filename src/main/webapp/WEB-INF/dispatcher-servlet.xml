@@ -38,7 +38,7 @@
     empList01.do 위 객체들의 메서드 중에 찾기 시작.
     
      -->  
-	<context:component-scan base-package="geulrowding">
+	<context:component-scan base-package="geul">
 		<context:include-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
 		<context:include-filter type="annotation" expression="org.springframework.stereotype.Service"/>
 		<context:include-filter type="annotation" expression="org.springframework.stereotype.Repository"/>
