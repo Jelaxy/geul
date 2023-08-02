@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd" >	
+<mapper namespace="geulrowding.a03_dao.YenaDao">
+	<resultMap type="projectGrd_user" id="pjRst">
+		<association property="project"   javaType="project">
+			<id column="pj_id" property="pj_id"/>
+			<result column="title" property="title"/>
+			<result column="price" property="price"/>
+			<result column="description" property="description"/>
+			<result column="img" property="img"/>
+			<result column="startdate" property="startdate"/>
+			<result column="enddate" property="enddate"/>
+			<result column="dday" property="dday"/>
+			<result column="goal_amt" property="goal_amt"/>
+			<result column="now_amt" property="now_amt"/>
+			<result column="achv_percent" property="achv_percent"/>
+			<result column="g_id" property="g_id"/>
+			<result column="info_img" property="info_img"/>
+			<result column="u_id" property="u_id"/>
+			<result column="g_name" property="g_name"/>
+		</association>
+		<association property="grd_user"   javaType="grd_user">
+			<id column="u_id" property="u_id"/>
+			<result column="pass" property="pass"/>
+			<result column="name" property="name"/>
+			<result column="nickname" property="nickname"/>
+			<result column="phn_num" property="phn_num"/>
+			<result column="email" property="email"/>
+			<result column="authorization" property="authorization"/>
+		</association>		
+	</resultMap>	 
+	<select id="getFundingList" resultMap="pjRst">
+		SELECT p.PJ_ID , p.TITLE ,p.description , p.PRICE , p.IMG , STARTDATE, p.ENDDATE, (TRUNC(p.ENDDATE - SYSDATE)) AS DDAY,
+		p.GOAL_AMT, (SELECT COUNT(f.F_ID) FROM FUNDING f WHERE f.PJ_ID = p.PJ_ID ) AS NOW_AMT, 
+		p.U_ID ,gu.NICKNAME,
+		(SELECT (COUNT(f.F_ID) / p.GOAL_AMT) * 100 FROM FUNDING f WHERE f.PJ_ID = p.PJ_ID) AS ACHV_PERCENT
+		FROM PROJECT p 
+		JOIN GRD_USER gu ON P.U_ID = gu.U_ID 
+		LEFT OUTER JOIN FUNDING f ON p.PJ_ID = f.PJ_ID
+		<![CDATA[and p.STARTDATE < SYSDATE]]>
+		ORDER BY p.ENDDATE 
+	</select>	 
+	<select id="getFunding_detail" resultMap="pjRst">
+		SELECT p.PJ_ID , p.TITLE , p.description , p.PRICE , p.IMG , p.INFO_IMG , c.G_NAME, 
+		STARTDATE, p.ENDDATE, (TRUNC(p.ENDDATE - SYSDATE)) AS dday,
+		p.GOAL_AMT, (SELECT COUNT(f.F_ID) FROM FUNDING f WHERE f.PJ_ID = p.PJ_ID ) AS NOW_AMT, 
+		p.U_ID ,gu.NICKNAME,
+		(SELECT (COUNT(f.F_ID) / p.GOAL_AMT) * 100 FROM FUNDING f WHERE f.PJ_ID = p.PJ_ID) AS achv_percent
+		FROM PROJECT p 
+		JOIN GRD_USER gu ON P.U_ID = gu.U_ID 
+		JOIN AUTHOR_DETAIL ad ON p.U_ID = ad.U_ID 
+		JOIN CATEGORY c ON p.G_ID  = c.G_ID 
+		LEFT OUTER JOIN FUNDING f ON p.PJ_ID = f.PJ_ID
+		where p.PJ_ID = #{pj_id}
+	</select>	 
+	<select id="getmyprojectList" resultMap="pjRst">
+		SELECT p.PJ_ID , p.TITLE ,p.description , STARTDATE, p.ENDDATE,
+		p.GOAL_AMT, (SELECT COUNT(f.F_ID) FROM FUNDING f WHERE f.PJ_ID = p.PJ_ID ) AS NOW_AMT, 
+		p.U_ID ,gu.NICKNAME,
+		(SELECT (COUNT(f.F_ID) / p.GOAL_AMT) * 100 FROM FUNDING f WHERE f.PJ_ID = p.PJ_ID) AS ACHV_PERCENT
+		FROM PROJECT p 
+		JOIN GRD_USER gu ON P.U_ID = gu.U_ID and p.u_id='zemma335'
+		LEFT OUTER JOIN FUNDING f ON p.PJ_ID = f.PJ_ID
+		ORDER BY p.ENDDATE 
+	</select>	
+	<select id="login" resultType="grd_user">
+		SELECT *
+		FROM grd_user
+		WHERE u_id = #{u_id}
+		AND pass = #{pass}		
+	</select>
+	<select id="makerpage" resultType="author_detail">
+		SELECT  ad.*,ba.bank,ba.ACCOUNT_NUM 
+		FROM AUTHOR_DETAIL ad ,BANK_ACCOUNT ba 
+		WHERE ad.u_id='zemma335'
+	</select>
+</mapper>	
