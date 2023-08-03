@@ -85,8 +85,8 @@
         }
     </style>
 
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/vendor.css">
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/style.css">
+    <link rel="stylesheet" href="${path}/assets/css/vendor.css">
+    <link rel="stylesheet" href="${path}/assets/css/style.css">
 </head>
 <body>
     <div class="body-wrapper">
@@ -109,7 +109,7 @@
                                     }'>
                                         <div class="img-large-wrapper">
                                             <a href="assets/img/project/thumbnail/id_01.jpg" data-fancybox="gallery">
-                                                <img src="${pageContext.request.contextPath}/assets/img/project/thumbnail/${pDetail.project.img}" alt="img">
+                                                <img src="${path}/assets/img/project/thumbnail/${pDetail.project.img}" alt="img">
                                             </a>
                                         </div>
                                     </div>
@@ -129,7 +129,7 @@
                                     }'>
                                         <div>
                                             <div class="img-thumb-wrapper">
-                                                <img src="${pageContext.request.contextPath}/assets/img/project/thumbnail/${pDetail.project.img}" alt="img">
+                                                <img src="${path}/assets/img/project/thumbnail/${pDetail.project.img}" alt="img">
                                             </div>
                                         </div>
                                     </div>
@@ -207,7 +207,7 @@
                                     <div style="display:inline-block;width:80%;margin-left:5px;">
 	                                    <strong>${pDetail.grd_user.nickname}</strong><p style="display:inline-block;padding-left:10px;">프로젝트 작가</p>
 	                                    <button type="button" style="float: right;" 
-	                                    	onClick="location.href=''">
+	                                    	onclick="location.href='${path}/writer_detail.do';">
 	                                        <span>작가 프로필 보기</span>
 	                                    </button>
                                     </div>
@@ -429,8 +429,8 @@
        <!-- footer -->
        <jsp:include page="./footer.jsp" flush="true"/>
         <!-- all js -->
-        <script src="${pageContext.request.contextPath}/assets/js/vendor.js"></script>
-        <script src="${pageContext.request.contextPath}/assets/js/main.js"></script>
+        <script src="${path}/assets/js/vendor.js"></script>
+        <script src="${path}/assets/js/main.js"></script>
     </div>
 </body>
 

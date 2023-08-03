@@ -85,8 +85,8 @@
         }
     </style>
 
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/vendor.css">
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/style.css">
+    <link rel="stylesheet" href="${path}/assets/css/vendor.css">
+    <link rel="stylesheet" href="${path}/assets/css/style.css">
 </head>
 <body>
     <div class="body-wrapper">
@@ -210,7 +210,7 @@
                                     <div style="display:inline-block;width:80%;margin-left:5px;">
 	                                    <strong>${pDetail.grd_user.nickname}</strong><p style="display:inline-block;padding-left:10px;">프로젝트 작가</p>
 	                                    <button type="button" style="float: right;" 
-	                                    	onClick="location.href=''">
+	                                    	onClick="location.href='${path}/writer_detail.do';">
 	                                        <span>작가 프로필 보기</span>
 	                                    </button>
                                     </div>

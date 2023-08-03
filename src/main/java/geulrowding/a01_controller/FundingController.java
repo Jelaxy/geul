@@ -55,11 +55,17 @@ public class FundingController {
 			d.addAttribute("noticeList", service.noticeList(pj_id));
 			return "WEB-INF\\view\\BisumHTML\\open-detail.jsp";
 		}
-
+		
 	@PostMapping("insertcommunity.do")
 	@ResponseBody
 	public String insertcommunity(Community ins) {
 		return service.insertcommunity(ins);
 	}
-	
+	//http://localhost:5080/geul/writer_detail.do
+	@RequestMapping("writer_detail.do")
+	public String writer_detail(Model d) {
+		//System.out.println("작가 프로필 호출.");	
+		//d.addAttribute("writer",service.writer_detail());
+		return "WEB-INF\\view\\BisumHTML\\writer_profile.jsp";
+	}
 }

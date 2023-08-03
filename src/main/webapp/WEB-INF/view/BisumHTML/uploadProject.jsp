@@ -85,8 +85,19 @@
 	                            <h2 class="section-heading">프로젝트 생성</h2>
 	                            <p class="section-subheading">나만의 프로젝트를 만들어보세요.</p>
 	                        </div>
+                <script type="text/javascript">
+	                // 프로젝트 생성 버튼 클릭
+					//function uploadbtn(){
+                	//	if(confirm('프로젝트 생성을 완료하시겠습니까?')){
+		            //		 alert('프로젝트 생성 완료')
+		            //		 $("form").attr("action","${path}/geul/openfunding.do");
+		            //		 $("form").submit()
+		            //	 }
+                	//}	                	      
+                </script>
+	                        
                             <div class="project-creation-form">
-                                <form method="post" enctype="multipart/form-data" class="contact-form">
+                                <form method="post" enctype="multipart/form-data" class="contact-form" name="pj_createForm">
                                     <div class="row">
                                     	<input type="hidden" id="u_id" name="u_id" value="tjsdud97"/>
                                      <!-- 프로젝트 제목 -->
@@ -94,14 +105,14 @@
                                             <label style="margin-top:10px;font-weight:bold;font-size:20px;" for="title">프로젝트 제목</label>
                                             <input style="margin-top:10px;" type="text" maxlength="30" class="form-control" 
                                             	name="title" id="title" placeholder="제목을 입력하세요 (10~30자 이내)" value="" required/>
-                                        	<p id="title_reg" style="float:right;color:gray;">0자/30자</p>
+                                        	<p id="title_reg" style="float:right;color:red;">* 프로젝트 제목을 입력해주세요.</p>
                                         </div>
                                    	<!-- 프로젝트 상세설명 -->
                                         <div class= "col-8">
                                             <label style="margin-top:10px;font-weight:bold;font-size:20px;" for="description">프로젝트 상세 설명</label>
                                             <input style="margin-top:10px;" type="text" maxlength="50" class="form-control"
                                             	 id="description" name="description" placeholder="프로젝트 설명을 입력하세요 (10~50자 이내)" required/>
-                                        	<p id="description_reg" style="float:right;color:gray;">0자/50자</p>
+                                        	<p id="description_reg" style="float:right;color:red;">* 프로젝트 상세설명을 입력해주세요.</p>
                                         </div>
                                     <!-- 썸네일 이미지 업로드 -->
                                         <div class="col-8">
@@ -114,14 +125,14 @@
                                             <label style="margin-top:40px;font-weight:bold;font-size:20px;" for="goal_amt">목표 도서 부수</label>
                                             <input style="margin-top:10px;" type="number" value="0" class="form-control" 
                                             	id="goal_amt" name="goal_amt"  placeholder="목표 도서 부수를 입력해주세요 (50~500부 이내)" required/>
-                                        	<p id="goal_amt_reg" style="float:right;color:gray;margin-top:3px;">* 최소 목표부수는 50부 입니다.</p>
+                                        	<p id="goal_amt_reg" style="float:right;color:red;margin-top:3px;">* 목표 도서 부수를 입력해주세요.</p>
                                         </div>
                                     <!-- 도서 금액-->
                                     <div class="col-8">
                                         <label style="margin-top:1px;font-weight:bold;font-size:20px;" for="price">도서 금액</label>
                                         <input style="margin-top:10px;" type="number" class="form-control" 
-                                        	id="price" name="price" value="0" placeholder="도서 금액을 입력하세요." required/>
-                                    	<p id="price_reg" style="float:right;color:gray;margin-top:3px;">* 최소금액은 1만원입니다.</p>
+                                        	id="price" name="price" value="0" placeholder="도서 금액을 입력하세요.(1만원 이상 설정 가능)" required/>
+                                    	<p id="price_reg" style="float:right;color:red;margin-top:3px;">*도서 금액을 입력해주세요.</p>
                                     </div>
                                     <!-- 프로젝트 카테고리 선택 -->
                                         <div class="col-8">
@@ -161,7 +172,7 @@
                                         </div>
 	                                    <!-- 프로젝트 생성 버튼 -->
 	                                    <div class="col-8">
-                                    		<button type="submit" onclick="create_btn()" 
+                                    		<button type="submit" onclick="" id="create_btn"
                                     			style="margin-top:50px;font-size:20px;height:50px;" class="btn btn-primary">프로젝트 생성하기</button>
                                 		</div>
                                 	</div>
@@ -181,11 +192,10 @@
 		    			if(titleLen<10){
 		    				$('#title_reg').text('* 10자 이상  입력해주세요')
 		    				$('#title_reg').css("color","red");
-		    				//$("#[create_btn]").attr("disabled", true);
+		    				
 		    			}else{
 		    				$('#title_reg').text('* '+titleLen+'자/30자')	
 		    				$('#title_reg').css("color","gray");
-		    				//$("#[create_btn]").attr("disabled", false);
 		    			}		    			 
 		          	 });
 		        	// 프로젝트 설명 글자수 체크
@@ -252,17 +262,7 @@
 						}
 					
 					}
-						
 		            
-		             // 프로젝트 생성 버튼 클릭
-					function create_btn(){
-						alert('프로젝트 생성 완료')
-					}
-						
-				
-				        // 생성된 프로젝트 상세 페이지로 이동
-				       // window.location.href = "상세 페이지 URL" + pj_id; // 실제로 생성된 프로젝트의 상세 페이지 URL로 변경해야 합니다.
-				    
 				</script>   
         </main>
        <!-- footer -->

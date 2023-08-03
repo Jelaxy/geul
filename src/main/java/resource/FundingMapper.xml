@@ -61,7 +61,6 @@
 		(SELECT (COUNT(f.F_ID) / p.GOAL_AMT) * 100 FROM FUNDING f WHERE f.PJ_ID = p.PJ_ID) AS achv_percent
 		FROM PROJECT p 
 		JOIN GRD_USER gu ON P.U_ID = gu.U_ID 
-		JOIN AUTHOR_DETAIL ad ON p.U_ID = ad.U_ID 
 		JOIN CATEGORY c ON p.G_ID  = c.G_ID 
 		LEFT OUTER JOIN FUNDING f ON p.PJ_ID = f.PJ_ID
 		where p.PJ_ID = #{pj_id}

@@ -132,12 +132,12 @@
                             <nav class="site-navigation">
                                 <ul class="main-menu list-unstyled justify-content-center">
                                     <li class="menu-list-item nav-item">
-                                        <a class="nav-link" href="contact.html">오픈 예정 프로젝트</a>
+                                        <a class="nav-link" href="${path}/openfunding.do">오픈 예정 프로젝트</a>
                                     </li>
                                     <li class="menu-list-item nav-item">
                                     </li>
                                     <li class="menu-list-item nav-item">
-                                        <a class="nav-link" href="contact.html">펀딩 프로젝트</a>
+                                        <a class="nav-link" href="${path}/funding.do">펀딩 프로젝트</a>
                                     </li>
                                     <li class="menu-list-item nav-item">
                                     </li>

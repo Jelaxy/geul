@@ -24,8 +24,7 @@ public class UploadProjectController {
 	private UploadProjectService service;
 	
 	//프로젝트 생성
-	//http://localhost:5080/geul/uploadProject.do?u_id=tjsdud97
-	//http://localhost:5080/geul/uploadProject.do?u_id=tjsdud97&title=test&description=test&goal_amt=50&price=50000&g_id=g-101&startdateS=2023-08-12&enddateS=2023-08-24
+	//http://localhost:5080/geul/uploadProject.do?
 	@GetMapping("uploadProject.do")
 	 public String uploadProject() {
 		return "WEB-INF\\view\\BisumHTML\\uploadProject.jsp";
