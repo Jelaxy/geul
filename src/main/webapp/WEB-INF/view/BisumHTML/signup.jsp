@@ -78,7 +78,7 @@
 
 <body>
     <div class="body-wrapper">
-		<!--<jsp:include page="./header.jsp" flush="true"/>-->
+		<jsp:include page="./header.jsp" flush="true"/>
         <!-- breadcrumb start -->
         <div class="breadcrumb">
             <div class="container">

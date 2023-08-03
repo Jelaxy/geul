@@ -92,7 +92,7 @@
                     <div class="col-lg-3 d-lg-block d-none">
                         <div class="announcement-meta-wrapper d-flex align-items-center justify-content-end">
                             <div class="announcement-meta d-flex align-items-center">
-                                <a class="announcement-login announcement-text text-white" href="login.jsp">
+                                <a class="announcement-login announcement-text text-white" href="${path}/login.do">
                                     <svg class="icon icon-user" width="10" height="11" viewBox="0 0 10 11" fill="none"
                                         xmlns="http://www.w3.org/2000/svg">
                                         <path
@@ -107,7 +107,7 @@
                                         <path opacity="0.4" d="M1 0.5V8.5" stroke="#FEFEFE" stroke-linecap="round" />
                                     </svg>
                                 </span>
-                                <a class="announcement-login announcement-text text-white" href="signup.jsp">
+                                <a class="announcement-login announcement-text text-white" href="${path}/signup.do">
                                     <span>Signup</span>
                                 </a>
                                 <span class="separator-login d-flex px-3">
