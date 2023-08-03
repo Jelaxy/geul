@@ -104,9 +104,9 @@
                 <div class="col-sm-9">
                 	<div class="tab-list product-tab-list">
                         <nav class="nav product-tab-nav"  style="margin-left:540px;">
-                            <a class="product-tab-link tab-link  active" href="/geulrowdingBisumHTML/myproject_profilemy.jsp">My Page</a>
+                            <a class="product-tab-link tab-link  active" href="${path}/geul/MyPage2.do">My Page</a>
                             <a class="product-tab-link tab-link" href="/geulrowding/BisumHTML/myproject_fundinglist.jsp">My Funding</a>
-                            <a class="product-tab-link tab-link" href="/geulrowding/BisumHTML/myproject_profile.jsp">My Project</a>
+                            <a class="product-tab-link tab-link" href="${path}myproject_profile.do">My Project</a>
                         </nav>
                     </div>
                     <br>

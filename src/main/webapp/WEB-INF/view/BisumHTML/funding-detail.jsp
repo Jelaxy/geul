@@ -155,7 +155,7 @@
 								<p style="color: #2196F3;text-align:right;">${pDetail.project.now_amt}/${pDetail.project.goal_amt}(판매부수/목표부수)</p>
 	                            <br>
 								<!--form-->
-                                <form class="product-form" id="goFunding" action="checkout_reward.jsp">
+                                <form class="product-form" id="goFunding" action="${path}/getReward.do?">
                                 	<div class="filter-widget">
 	                                 <div class="filter-header faq-heading heading_18 d-flex align-items-center justify-content-between border-bottom"
 	                                     data-bs-toggle="collapse" data-bs-target="#filter-collection">

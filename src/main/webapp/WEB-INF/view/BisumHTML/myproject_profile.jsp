@@ -101,9 +101,9 @@
                 <div class="col-sm-9">
                 	<div class="tab-list product-tab-list">
                         <nav class="nav product-tab-nav"  style="margin-left:540px;">
-                            <a class="product-tab-link tab-link" href="/geulrowding/BisumHTML/myproject_profilemy.jsp">My Page</a>
+                            <a class="product-tab-link tab-link" href="${path}/MyPage2.do?">My Page</a>
                             <a class="product-tab-link tab-link" href="/geulrowding/BisumHTML/myproject_fundinglist.jsp">My Funding</a>
-                            <a class="product-tab-link tab-link active" href="/geulrowding/BisumHTML/myproject_profile.jsp">My Project</a>
+                            <a class="product-tab-link tab-link active" href="${path}/myproject_profile.do">My Project</a>
                         </nav>
                     </div>
                     <br>
@@ -111,10 +111,10 @@
                     <hr>
                     <div class="tab-list product-tab-list">
                         <nav class="nav product-tab-nav">
-                            <a class="product-tab-link tab-link active" href="/geulrowding/BisumHTML/myproject_profile.jsp" >작가 프로필</a>
-                            <a class="product-tab-link tab-link" href="/geulrowding/BisumHTML/myproject_pjlist.jsp" >진행중인 프로젝트</a>
-                            <a class="product-tab-link tab-link" href="/geulrowding/BisumHTML/myproject_notice.jsp" >새소식 작성</a>
-                        </nav>
+                            <a class="product-tab-link tab-link active" href="${path}/geul/myproject_profile.do" >작가 프로필</a>
+                            <a class="product-tab-link tab-link" href="${path}/geul/myproject_pjlist.do" >진행중인 프로젝트</a>
+                            <a class="product-tab-link tab-link" href="${path}/geul/myproject_notice.do" >새소식 작성</a>
+                            <a class="product-tab-link tab-link" href="${path}/geul/uploadProject.do?" >새 프로젝트 만들기</a>                  
                         </nav>
                     </div>
                     <div class="bg-white rounded shadow-sm container p-3">
