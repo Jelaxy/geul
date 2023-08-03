@@ -5,7 +5,9 @@ import java.util.List;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Select;
 
+import geulrowding.z01_vo.Author_detail;
 import geulrowding.z01_vo.Community;
+import geulrowding.z01_vo.Grd_user;
 import geulrowding.z01_vo.Notice;
 import geulrowding.z01_vo.Project;
 import geulrowding.z01_vo.ProjectGrd_user;
@@ -32,5 +34,25 @@ public interface FundingDao {
 			+ "WHERE n.PJ_ID = #{pj_id} ORDER BY n.N_DATE DESC")
 	public List<Notice> getNoticeList(String pj_id);
 	
+	
+	
+	
+	
+	public Grd_user login(Grd_user mem);
+
+	@Insert("INSERT INTO grd_user(u_id, pass, name, nickname, phn_num, email, authorization"
+			+ ")VALUES (#{u_id}, #{pass}, #{name}, #{nickname}, #{phn_num} , #{email})")
+	public int insertMem(Grd_user ins);
+
+	@Insert("SELECT  ad.*,ba.bank,ba.ACCOUNT_NUM \n"
+			+ "FROM AUTHOR_DETAIL ad ,BANK_ACCOUNT ba \n"
+			+ "WHERE ad.u_id=#{u_id}")
+	public Author_detail selAuth();
+	
+	public List<ProjectGrd_user> getMyfunding(String u_id);
+	
+	
+//	@Select("	SELECT count(*)\r\n" + "	FROM grd_user\r\n" + "	WHERE LOWER(u_id)=lower(#{u_id})")
+//	public int checkId(@Param("u_id") String u_id);
 	
 }	

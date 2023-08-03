@@ -126,7 +126,7 @@
                                 <span><a href="#">아이디 찾기</a></span> | <span><a href="#">비밀번호 찾기</a></span>
                                 <button type="submit" onclick="loginChk()"
                                 class="btn-primary d-block mt-4 btn-signin">로그인</button>
-                                <a href="signup.jsp" class="btn-secondary mt-2 btn-signin">회원가입</a>
+                                <a href="${path}/signup.do" class="btn-secondary mt-2 btn-signin">회원가입</a>
                             </div>
                         </div>
                     </form>
@@ -151,7 +151,15 @@
            pw.focus();
            return;
           }
+        
         }
+
+  	var msg = "${msg}"
+        if(msg!=""){
+           alert(msg)   
+           if(msg == "로그인 성공"){
+              location.href="${path}/funding.do";
+          }
  </script>
         
       <jsp:include page="./footer.jsp" flush="true"/>

@@ -110,6 +110,15 @@
                                 <a class="announcement-login announcement-text text-white" href="signup.jsp">
                                     <span>Signup</span>
                                 </a>
+                                <span class="separator-login d-flex px-3">
+                                    <svg width="2" height="9" viewBox="0 0 2 9" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path opacity="0.4" d="M1 0.5V8.5" stroke="#FEFEFE" stroke-linecap="round" />
+                                    </svg>
+                                </span>
+                                <a class="announcement-login announcement-text text-white" href="${path}/MyPage2.do">
+                                    <span>마이페이지</span>
+                                </a>
                             </div>
                         </div>
                     </div>

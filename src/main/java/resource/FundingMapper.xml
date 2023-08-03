@@ -65,4 +65,11 @@
 		LEFT OUTER JOIN FUNDING f ON p.PJ_ID = f.PJ_ID
 		where p.PJ_ID = #{pj_id}
 	</select>	 
+	<!--  예나파트  -->
+	<select id="login" resultType="grd_user">
+		SELECT *
+		FROM grd_user
+		WHERE u_id = #{u_id}
+		AND pass = #{pass}		
+	</select>	 
 </mapper>	

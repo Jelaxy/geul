@@ -12,6 +12,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import geulrowding.a03_dao.FundingDao;
 import geulrowding.z01_vo.Community;
+import geulrowding.z01_vo.Grd_user;
 import geulrowding.z01_vo.Notice;
 import geulrowding.z01_vo.Project;
 import geulrowding.z01_vo.ProjectGrd_user;
@@ -46,5 +47,17 @@ public class FundingService {
 		return dao.getNoticeList(pj_id);
 	}
 	
-	
+	// -------- 예나파트-------------
+	public Grd_user login(Grd_user mem) {
+		return dao.login(mem);
+	}
+	public String insertMem(Grd_user ins) {
+		return dao.insertMem(ins)>0?"등록성공":"등록되지 않음" ;
+	}	
+	public List<ProjectGrd_user> myfunding(String u_id) {
+		return dao.getMyfunding(u_id);
+	}
+//	public String checkId(String u_id) {
+//		return dao.checkId(u_id)>0?"등록불가":"등록가능";
+//	}
 }
