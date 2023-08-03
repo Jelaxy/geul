@@ -64,3 +64,12 @@ INSERT INTO REVIEW VALUES ('r-'||c_id.nextval,'구매하고 인생샷 많이 건
 CREATE SEQUENCE f_id INCREMENT BY 1 START WITH 100;
 INSERT INTO FUNDING VALUES ('f-'||f_id.nextval,'pj-100','dbfla98');
 INSERT INTO FUNDING VALUES ('f-'||f_id.nextval,'pj-100','dpwls98');
+
+------ 김예진 마이페이지 일반을 위해서 주소 정보랑 카드정보 집어넣음..(07.25)
+-- 카드정보 --
+INSERT INTO paycard_info VALUES ('tjsdud97', '2025-02-05', 523, '강쥐전용카드',1234567899901234);
+INSERT INTO paycard_info VALUES ('dpsk00', '2024-12-25', 341, '축구를위한', 9876543212345678);
+
+-- 주소정보 --
+INSERT INTO address VALUES ('tjsdud97', '한독약품빌딩 8층', '서울특별시 강남구 테헤란로 132', '06235');
+INSERT INTO address VALUES ('dpsk00', '매직아일랜드 자이로스윙', '서울특별시 송파구 올림픽로 240', '05551');

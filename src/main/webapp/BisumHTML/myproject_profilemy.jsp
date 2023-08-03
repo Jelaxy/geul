@@ -112,22 +112,23 @@
                     <br>
                     <div class="tab-list product-tab-list">
                         <nav class="nav product-tab-nav">
-                            <a class="product-tab-link tab-link " href="/geulrowding/BisumHTML/myproject_profilemy.jsp" >마이 프로필</a>
-                           
-                           
+                            <a class="product-tab-link tab-link active" href="/geulrowding/BisumHTML/myproject_profilemy.jsp">마이 프로필</a>
+                            <a class="product-tab-link tab-link" href="/geulrowding/BisumHTML/myproject_profilemycardinfo.jsp" >카드 정보</a>
+                            <a class="product-tab-link tab-link" href="/geulrowding/BisumHTML/myproject_profilemyaddress.jsp" >주소 정보</a>
                         </nav>
                        
                     </div>
                     
                     <div class="bg-white rounded shadow-sm container p-3">
-                        <form method="POST" action="updateAction" name="updateForm" onsubmit="return updateValidate();" class="form-horizontal" role="form">
+                        <form method="POST" action="updateAction.do" name="updateForm" onsubmit="return confirmUpdate();" class="form-horizontal" role="form">
                            <div class="row mb-3 form-row">
                                 <div class="col-md-3">
                                 	<h6>아이디</h6>
                                 </div>
                                 <div class="col-md-6">
-                                    <h5 id="id">아이디</h5>
+                                    <h5 id="id">${user.u_id}</h5>
                                 </div>
+                                <input name ="u_id" type="hidden" value=${user.u_id}>
                             </div>
 
                             <!-- 닉네임 -->
@@ -136,7 +137,7 @@
                                     <h6>닉네임</h6>
                                 </div>
                                 <div class="col-md-6">
-                                    <h5 id="nickname">닉네임</h5>
+                                    <h5 id="nickname">${user.nickname}</h5>
                                 </div>
                             </div>
             
@@ -146,7 +147,7 @@
                                     <h6>이름</h6>
                                 </div>
                                 <div class="col-md-6">
-                                    <h5 id="name">이름</h5>
+                                    <h5 id="name">${user.name}</h5>
                                 </div>
                             </div>
             
@@ -158,15 +159,10 @@
             
                                 
                                 <div class="col-md-3">
-                                    <input type="text" class="form-control phone" 
-                                        id="phone2" name="phone2" maxlength="11" value="휴대폰번호">
-                                </div>
+                                    <input type="text" class="form-control phone" id="phn_num" name="phn_num" maxlength="15" value="${user.phn_num}">
+           						</div>
             
-                                <!-- 전화번호3 -->
-                                <!-- <div class="col-md-3">
-                                    <input type="number" class="form-control phone" 
-                                        id="phone3" name="phone3" maxlength="4" value="${phone[2]}">
-                                </div> -->
+                                
                             </div>
             
                             <!-- 이메일 -->
@@ -175,51 +171,12 @@
                                     <label for="memberEmail">Email</label>
                                 </div>
                                 <div class="col-md-6">
-                                    <input type="email" class="form-control" id="email"
-                                        name="memberEmail" value="Email">
-                                </div>
+                                    <input type="email" class="form-control" id="email" name="email" value="${user.email}">
+            					</div>
                             </div>
                             <br>
             
-                            <c:set var="address" value="address}"></c:set>
                             
-                            <!-- 주소 -->
-                            <!-- 오픈소스 도로명 주소 API -->
-                            <!-- https://www.poesis.org/postcodify/ -->
-                            <div class="row mb-3 form-row">
-            
-                                <div class="col-md-3">
-                                    <label for="postcodify_search_button">우편번호</label>
-                                </div>
-                                <div class="col-md-3">
-                                    <input type="text" name="post" id="post" 
-                                        class="form-control postcodify_postcode5" value="주소">
-                                </div>
-                                <div class="col-md-3">
-                                    <button type="button" class="btn btn-success" 
-                                        id="postcodify_search_button">검색</button>
-                                </div>
-                            </div>
-            
-                            <div class="row mb-3 form-row">
-                                <div class="col-md-3">
-                                    <label for="address1">도로명 주소</label>
-                                </div>
-                                <div class="col-md-9">
-                                    <input type="text" class="form-control postcodify_address" 
-                                        name="address1" id="address1" value="주소2">
-                                </div>
-                            </div>
-            
-                            <div class="row mb-3 form-row">
-                                <div class="col-md-3">
-                                    <label for="address2">상세주소</label>
-                                </div>
-                                <div class="col-md-9">
-                                    <input type="text" class="form-control postcodify_details" 
-                                        name="address2" id="address2" value="상세주소">
-                                </div>
-                            </div>
             
                             <!-- 선호 장르 -->
                            
@@ -267,29 +224,43 @@
                                 </div>
                                 
                                 <br>
-                              	<div class="row"></div>
-                                
-                                <div class="row mb-3 form-row">
-								    <div class="col-md-3">
-								        <label for="phone1">결제 계좌</label>
-								    </div>
-								
-								    <div class="col-md-6"> <!-- Increased col-md to 6 -->
-								        <input type="text" class="form-control phone" id="phone2" name="phone2" maxlength="30" value="결제계좌">
-								    </div>
-								</div>
+                              	
                             
                             
                             <hr class="mb-4">
                             <button type="submit" class="position-relative review-submit-btn contact-submit-btn">수정</button>
-                            <!-- <button class="btn btn-success btn-lg btn-block" type="submit">수정</button> -->
+                      
                         </form>
                     </div>
                 </div>
              </div>
           </div>
       </main>
+<!-- JavaScript 코드 추가 -->
+<script>
+function confirmUpdate() {
+    // 수정 여부를 확인하는 메시지를 띄웁니다.
+    var confirmMessage = "회원 정보를 수정하시겠습니까?";
+    if (confirm(confirmMessage)) {
+        // 사용자가 확인을 누르면 폼을 서버로 제출합니다.
+        return true;
+    } else {
+        // 사용자가 취소를 누르면 폼 제출을 취소합니다.
+        return false;
+    }
+}
 
+<!-- 관심분야 -->
+(function(){
+    var interest = "${loginMember.memberInterest}".split(",");
+    $("input[name='memberInterest']").each(function(index, item){
+        if(interest.indexOf($(item).val()) != -1){
+            $(item).prop("checked", true);
+        }
+    })
+    
+})();
+</script>
             <!-- product tab start -->
        
                 <!-- about banner end -->
