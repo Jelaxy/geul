@@ -75,7 +75,7 @@ INSERT INTO REVIEW VALUES ('r-'||c_id.nextval,'구매하고 인생샷 많이 건
    5, 'dbfla98','pj-100',sysdate);
 -- 펀딩
 CREATE SEQUENCE f_id INCREMENT BY 1 START WITH 100;
-INSERT INTO FUNDING VALUES ('f-'||f_id.nextval,'pj-100','dbfla98');
+INSERT INTO FUNDING VALUES ('f-'||f_id.nextval,'pj-102','dbfla98');
 INSERT INTO FUNDING VALUES ('f-'||f_id.nextval,'pj-100','dpwls98');
 ----- 개인적으로 추가(07.25)--------------
 -- 작가디테일 --

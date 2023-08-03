@@ -295,7 +295,7 @@
                                 	</div>
                                 </div>
                                	</c:forEach>
-                            </div>
+                            </div>V
                         </div>
                         <!-- 새소식 -->
                         <div id="news" class="tab-pane fade">

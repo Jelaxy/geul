@@ -172,8 +172,10 @@
                                         </div>
 	                                    <!-- 프로젝트 생성 버튼 -->
 	                                    <div class="col-8">
-                                    		<button type="submit" onclick="" id="create_btn"
+                                    		<button type="submit" onclick="alert('프로젝트 생성 완료')" id="create_btn"
                                     			style="margin-top:50px;font-size:20px;height:50px;" class="btn btn-primary">프로젝트 생성하기</button>
+                                    			<button type="button" onclick="location.href='${path}/geul/openfunding.do'" id="home_btn"
+                                    			style="margin-top:50px;font-size:20px;height:50px;color:withe;background-color:gray;" class="btn btn-primary">메인화면</button>
                                 		</div>
                                 	</div>
                                 </form>                               
