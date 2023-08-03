@@ -132,7 +132,7 @@
                     <div class="row align-items-center">
                         <div class="col-lg-3 col-md-4 col-4">
                             <div class="header-logo">
-                                <a href="index-shoe.html" class="logo-main">
+                                <a href="${path}/funding.do" class="logo-main">
                                     <img src="assets/img/grd_logo.png" style="width:180px;" loading="lazy" alt="bisum">
                                 </a>
                             </div>
