@@ -14,7 +14,6 @@
 	<mappers>
 		<!-- sql을 입력값과 리턴값에 의해 실제 객체를 만들어 주는 xml
 			선언 위치 지정 -->
-		<mapper resource="resource/FundingMapper.xml"/>
 		<mapper resource="resource/CheckoutMapper.xml"/>
 	</mappers>
 </configuration>
