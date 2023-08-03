@@ -1,8 +1,8 @@
-package spring.a04_vo;
+package geulrowding.z01_vo;
 
 import java.util.Date;
+// geulrowding.z01_vo.Paycard_info
 
-// spring.a04_vo.Paycard_info
 public class Paycard_info {
 	private String paycard_cname;
 	private int paycard_number;
@@ -15,6 +15,17 @@ public class Paycard_info {
 		// TODO Auto-generated constructor stub
 	}
 	
+	
+	
+	public Paycard_info(int paycard_number, Date expiration_date, int cvc) {
+		super();
+		this.paycard_number = paycard_number;
+		this.expiration_date = expiration_date;
+		this.cvc = cvc;
+	}
+
+
+
 	// 외래키 제외
 	public Paycard_info(String paycard_cname, int paycard_number, Date expiration_date, int cvc) {
 		super();

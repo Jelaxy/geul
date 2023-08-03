@@ -1,6 +1,6 @@
-package spring.a04_vo;
+package geulrowding.z01_vo;
 
-// spring.a04_vo.Address
+
 public class Address {
 	private String ad_detail;
 	private String ad_normal;

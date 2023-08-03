@@ -1,33 +1,8 @@
-package spring.a04_vo;
+package geulrowding.z01_vo;
 
-// spring.a04_vo.Grd_user
 public class Grd_user {
 	private String u_id;
 	private String pass;
-	private String name;
-	private String nickname;
-	private String phn_num;
-	private String email;
-	private String authorization;
-	
-	public Grd_user() {
-		super();
-		// TODO 
-	}
-	
-	public Grd_user(String u_id, String pass, String name, String nickname, String phn_num, String email,
-			String authorization) {
-		super();
-		this.u_id = u_id;
-		this.pass = pass;
-		this.name = name;
-		this.nickname = nickname;
-		this.phn_num = phn_num;
-		this.email = email;
-		this.authorization = authorization;
-	}
-	
-	// getter/setter 메서드
 	public String getU_id() {
 		return u_id;
 	}
@@ -70,5 +45,24 @@ public class Grd_user {
 	public void setAuthorization(String authorization) {
 		this.authorization = authorization;
 	}
-	
+	public Grd_user(String u_id, String pass, String name, String nickname, String phn_num, String email,
+			String authorization) {
+		super();
+		this.u_id = u_id;
+		this.pass = pass;
+		this.name = name;
+		this.nickname = nickname;
+		this.phn_num = phn_num;
+		this.email = email;
+		this.authorization = authorization;
+	}
+	private String name;
+	private String nickname;
+	private String phn_num;
+	private String email;
+	private String authorization;
+	public Grd_user() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 }
